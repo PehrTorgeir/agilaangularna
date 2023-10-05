@@ -1,24 +1,30 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SportService } from './sport.service';
+import { LeagueService } from './league.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  //template:`<body>tjenare</body>`
  
 
 
 
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  sports:any[] =[];
-  constructor(private sportService:SportService){
+export class AppComponent implements OnInit{
+  
+  sports: any[] = [];
+  leagues: any[] = [];
 
-  }
+  constructor(private sportService: SportService, private leagueService: LeagueService) {}
 
-  ngOnInit(){
-    this.sportService.getSports().subscribe((data:any[])=>{this.sports=data;});
+  ngOnInit() {
+    this.sportService.getSports().subscribe((response) => {
+        this.sports = response.sports;
+      });
+    this.leagueService.getLeagues().subscribe((response) => {
+        this.leagues = response.leagues;
+    })
   }
 
 

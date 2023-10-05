@@ -18,11 +18,16 @@
 </header>
 <div class="row border" >
     <div class="col-2 border "  >  
-     tjo
+      <div *ngFor="let sport of sports">
+        {{ sport.name }}
+      </div>
 
     </div>
     <div class="col-10 border">
-       
+      <div *ngFor="let league of leagues">
+        {{ league.name }},
+        {{ league.season.slug }}
+      </div>
     </div>
 </div>
 </body>
