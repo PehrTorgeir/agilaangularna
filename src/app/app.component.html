@@ -1,34 +1,20 @@
-<body>
-<header>
-    <div class="row border">
-        <div class="col-3">
-            hem
-        </div>
-        <div class="col-3">
-            hem
-        </div>
-        <div class="col-3">
-            hem
-        </div>
-        <div class="col-3">
-            hem
-        </div>
+<main>
+  <a [routerLink]="['/']"></a>
+  <div class="row border" style="text-align: center;">
+    <div class="col-2">
+      <a [routerLink]="['/home']">hem</a>
     </div>
-    
-</header>
-<div class="row border" >
-    <div class="col-2 border "  >  
-      <div *ngFor="let sport of sports">
-        {{ sport.name }}
-      </div>
-
+    <div class="col-3">
+      Fotboll
     </div>
-    <div class="col-10 border">
-      <div *ngFor="let league of leagues">
-        {{ league.name }},
-        {{ league.season.slug }}
-      </div>
+    <div class="col-3">
+      Ishockey
     </div>
-</div>
-</body>
-
+    <div class="col-3">
+      Innebandy
+    </div>
+  </div>
+  <section class="content">
+    <router-outlet></router-outlet>
+  </section>
+</main>

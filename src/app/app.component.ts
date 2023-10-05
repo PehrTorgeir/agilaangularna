@@ -1,33 +1,20 @@
-import { Component, OnInit } from '@angular/core';
-import { SportService } from './sport.service';
-import { LeagueService } from './league.service';
+import { Component } from '@angular/core';
+import { HomeComponent } from './home/home.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
+  standalone: true,
+  imports: [
+    HomeComponent,
+    RouterLink,
+    RouterOutlet,
+  ],
   templateUrl: './app.component.html',
- 
-
-
-
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
   
-  sports: any[] = [];
-  leagues: any[] = [];
-
-  constructor(private sportService: SportService, private leagueService: LeagueService) {}
-
-  ngOnInit() {
-    this.sportService.getSports().subscribe((response) => {
-        this.sports = response.sports;
-      });
-    this.leagueService.getLeagues().subscribe((response) => {
-        this.leagues = response.leagues;
-    })
-  }
-
-
   title = 'agilaangularna';
   
 }
