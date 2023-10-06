@@ -1,9 +1,8 @@
 <body>
     <div class="row border">
         <div class="col-2 border ">
-            <div *ngFor="let league of leagues">
-                {{ league.name }},
-                {{ league.season.slug }}
+            <div *ngFor="let leagueName of uniqueLeagueNames">
+                {{ leagueName }},
             </div>
 
         </div>

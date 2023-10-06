@@ -1,12 +1,9 @@
 <body>
     <div class="row border">
         <div class="col-2 border ">
-            <div *ngFor="let league of leagues">
-                <span *ngIf="league.sport.name === receivedData">
-                    {{ league.name }},
-                    {{ league.season.slug }}
-                </span>
-            </div>
+                <div *ngFor="let leagueName of uniqueLeagueNames">
+                    {{ leagueName }},
+                </div>
 
         </div>
         <div class="col-10 border">

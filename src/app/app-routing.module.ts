@@ -10,7 +10,7 @@ const routes: Routes = [
   title: 'Home page'
 },
 {
-  path: 'sport',
+  path: ':sport',
   component: SportComponent,
   title: 'Sport info'
 }

@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent implements OnInit {
   sports: any[] = [];
   leagues: any[] = [];
+  uniqueLeagueNames: Set<string> = new Set<string>();
 
   constructor(private sportService: SportService, private leagueService: LeagueService) { }
 
@@ -24,7 +25,17 @@ export class HomeComponent implements OnInit {
     });
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
+      this.filterUniqueLeagueNames();
     })
+  }
+
+  private filterUniqueLeagueNames() {
+    this.leagues.forEach(league => {
+      const name = league.name;
+      if (!this.uniqueLeagueNames.has(name)) {
+        this.uniqueLeagueNames.add(name);
+      }
+    });
   }
 
 }
