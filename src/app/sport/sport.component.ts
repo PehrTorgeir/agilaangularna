@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { LeagueService } from '../league.service';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-sport',
@@ -18,29 +18,29 @@ export class SportComponent implements OnInit {
   receivedData: string = '';
   uniqueLeagueNames: Set<string> = new Set<string>();
 
-  constructor(private dataService: DataService, private leagueService: LeagueService, private route: ActivatedRoute) {}
+  constructor(private dataService: DataService, private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    this.dataService.getData().subscribe(message => {
-      if (message != null) {
-        this.receivedData = message;
-      }
-    });
-
     this.route.params.subscribe(params => {
-      if (this.receivedData === '') {
-        this.receivedData = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
+      const newReceivedData = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
+      if (this.receivedData !== newReceivedData) {
+        this.receivedData = newReceivedData;
+        this.getDataBasedOnMessage();
       }
     });
+  }
 
+  private getDataBasedOnMessage() {
+    this.leagues = [];
+    this.uniqueLeagueNames = new Set<string>();
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
       this.filterUniqueLeagueNames();
-    })
+    });
   }
 
   private filterUniqueLeagueNames() {
-    this.leagues.forEach(league => {
+    this.leagues.forEach((league) => {
       const name = league.name;
       if (!this.uniqueLeagueNames.has(name)) {
         if (league.sport.name === this.receivedData) {
