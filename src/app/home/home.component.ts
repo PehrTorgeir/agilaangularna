@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
+export class HomeComponent implements OnInit {
   sports: any[] = [];
   leagues: any[] = [];
 
@@ -26,4 +26,5 @@ export class HomeComponent implements OnInit{
       this.leagues = response.leagues;
     })
   }
+
 }

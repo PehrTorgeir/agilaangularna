@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { DataService } from './data.service';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,11 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent{
+  constructor(private dataService: DataService) {}
+
+  sendData(message: string) {
+    this.dataService.sendData(message);
+  }
   
   title = 'agilaangularna';
   
