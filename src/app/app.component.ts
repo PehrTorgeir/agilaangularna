@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HomeComponent } from './home/home.component';
-import { Router, RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet } from '@angular/router';
 import { DataService } from './data.service';
 
 @Component({
@@ -20,7 +20,7 @@ export class AppComponent{
   sendData(message: string) {
     this.dataService.sendData(message);
   }
-  
+
   title = 'agilaangularna';
   
 }
