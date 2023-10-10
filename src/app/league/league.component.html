@@ -1,0 +1,17 @@
+<body>
+    <div class="row border">
+        <div class="col-2 border ">
+            <ul style="list-style-type: none;">
+                <li>Översikt</li>
+                <li>Tabell</li>
+                <li>Spelschema</li>
+                <li>Spelarstatistik</li>
+            </ul>
+        </div>
+        <div class="col-10 border">
+            <div *ngFor="let league of seasons">
+                {{league.season.slug}}
+            </div>
+        </div>
+    </div>
+</body>

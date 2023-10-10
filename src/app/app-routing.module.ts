@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { SportComponent } from './sport/sport.component';
 import { HomeComponent } from './home/home.component';
+import { LeagueComponent } from './league/league.component';
 
 const routes: Routes = [
   {path: '',
@@ -13,7 +14,12 @@ const routes: Routes = [
   path: ':sport',
   component: SportComponent,
   title: 'Sport info'
-}
+},
+{
+  path: ':sport/:league',
+  component: LeagueComponent,
+  title: 'League info'
+},
 ];
 
 export default routes;

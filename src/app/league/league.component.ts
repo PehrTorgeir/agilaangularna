@@ -5,25 +5,24 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-sport',
+  selector: 'app-league',
   standalone: true,
   imports: [
-    CommonModule,
-    RouterLink
+    RouterLink,
+    CommonModule
   ],
-  templateUrl: './sport.component.html',
-  styleUrls: ['./sport.component.css']
+  templateUrl: './league.component.html',
+  styleUrls: ['./league.component.css']
 })
-export class SportComponent implements OnInit {
+export class LeagueComponent implements OnInit {
+  seasons: any[] = [];
   leagues: any[] = [];
   receivedData: string = '';
-  uniqueLeagueNames: Set<string> = new Set<string>();
-
   constructor(private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) {}
-
+  
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const newReceivedData = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
+      const newReceivedData = params['league'].charAt(0).toUpperCase() + params['league'].slice(1);
       if (this.receivedData !== newReceivedData) {
         this.receivedData = newReceivedData;
         this.getDataBasedOnMessage();
@@ -32,26 +31,25 @@ export class SportComponent implements OnInit {
   }
 
   private getDataBasedOnMessage() {
-    this.leagues = [];
-    this.uniqueLeagueNames = new Set<string>();
+    this.seasons = [];
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
-      this.filterUniqueLeagueNames();
+      console.log(this.leagues);
+      this.getSeasonsBasedOnLeague();
     });
+    
   }
 
-  private filterUniqueLeagueNames() {
+  private getSeasonsBasedOnLeague() {
     this.leagues.forEach((league) => {
-      const name = league.name;
-      if (!this.uniqueLeagueNames.has(name)) {
-        if (league.sport.name === this.receivedData) {
-          this.uniqueLeagueNames.add(league.name.toLowerCase());
-        }
+      
+      if (league.name === this.receivedData){
+        this.leagueService.getSeasons(league.id).subscribe((response) => {
+          this.seasons = response.leagues;
+          console.log(this.leagues);
+          
+        });
       }
-    });
-  }
-
-  transformWord(word:string) {
-    return word.charAt(0).toUpperCase()+word.slice(1);
+    })
   }
 }
