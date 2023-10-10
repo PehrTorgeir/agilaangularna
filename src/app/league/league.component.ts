@@ -18,8 +18,8 @@ export class LeagueComponent implements OnInit {
   seasons: any[] = [];
   leagues: any[] = [];
   receivedData: string = '';
-  constructor(private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) {}
-  
+  constructor(private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) { }
+
   ngOnInit() {
     this.route.params.subscribe(params => {
       const newReceivedData = params['league'].charAt(0).toUpperCase() + params['league'].slice(1);
@@ -34,22 +34,20 @@ export class LeagueComponent implements OnInit {
     this.seasons = [];
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
-      console.log(this.leagues);
       this.getSeasonsBasedOnLeague();
     });
-    
+
   }
 
   private getSeasonsBasedOnLeague() {
-    this.leagues.forEach((league) => {
-      
-      if (league.name === this.receivedData){
+    for (let index = 0; index < this.leagues.length; index++) {
+      const league = this.leagues[index];
+      if (league.name.toLowerCase() === this.receivedData.toLowerCase()) {
         this.leagueService.getSeasons(league.id).subscribe((response) => {
           this.seasons = response.leagues;
-          console.log(this.leagues);
-          
         });
+        break;
       }
-    })
+    }
   }
 }
