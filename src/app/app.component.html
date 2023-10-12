@@ -1,27 +1,30 @@
-<main>
-  
-  <div class="row border " style="text-align: center;">
-    <div class="col-2 hover " [routerLink]="['/']" (click)="setActiveClass(0)" [ngClass]="{'active': activeColumnIndex === 0,'not-active':activeColumnIndex!==0}" >
+<main class="container-fluid">
+
+  <div class="row" style="text-align: center;">
+    <div class="col-2 hover " [routerLink]="['/']" (click)="setActiveClass(0)"
+      [ngClass]="{'active': activeColumnIndex === 0,'not-active':activeColumnIndex!==0}">
       <img src="/assets/home.png" class="logosport">
       <p>Hem</p>
     </div>
-    
-    <div class="col hover"[routerLink]="['/fotboll']"   [ngClass]="{'active': activeColumnIndex === 1,'not-active':activeColumnIndex!==1}" (click)="setActiveClass(1)" (click)="sendData('Fotboll')" >
+
+    <div class="col hover" [routerLink]="['/fotboll']"
+      [ngClass]="{'active': activeColumnIndex === 1,'not-active':activeColumnIndex!==1}" (click)="setActiveClass(1)"
+      (click)="sendData('Fotboll')">
       <img src="/assets/fotboll.png" class="logosport">
-
-      <p >Fotboll</p>
-
+      <p>Fotboll</p>
     </div>
-    <div class="col hover"[routerLink]="['/ishockey']"  
+
+    <div class="col hover" [routerLink]="['/ishockey']"
+      [ngClass]="{'active': activeColumnIndex === 2 ,'not-active':activeColumnIndex!==2}" (click)="setActiveClass(2)"
+      (click)="sendData('Ishockey')">
+      <img src="/assets/ishockey.png" class="logosport">
+      <p>Ishockey</p>
+    </div>
     
-
-    [ngClass]="{'active': activeColumnIndex === 2 ,'not-active':activeColumnIndex!==2}" 
-    (click)="setActiveClass(2)"  (click)="sendData('Ishockey')" >
-      <img src="/assets/ishockey.png" class="logosport" >
-      <p >Ishockey</p>
-    </div>
-    <div class="col  hover"[routerLink]="['/innebandy']"  [ngClass]="{'active': activeColumnIndex === 3,'not-active':activeColumnIndex!==3}" (click)="setActiveClass(3)"  (click)="sendData('innebandy')">
-      <img src="/assets/innebandy.png" class="logosport" >
+    <div class="col  hover" [routerLink]="['/innebandy']"
+      [ngClass]="{'active': activeColumnIndex === 3,'not-active':activeColumnIndex!==3}" (click)="setActiveClass(3)"
+      (click)="sendData('innebandy')">
+      <img src="/assets/innebandy.png" class="logosport">
       <p>Innebandy</p>
     </div>
   </div>

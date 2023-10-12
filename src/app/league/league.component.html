@@ -1,6 +1,6 @@
 <body>
-    <div class="row border">
-        <div class="col-2 border ">
+    <div class="row ">
+        <div class="col-2">
             <ul style="list-style-type: none;">
                 <li>Översikt</li>
                 <li>Tabell</li>
@@ -8,7 +8,7 @@
                 <li>Spelarstatistik</li>
             </ul>
         </div>
-        <div class="col-10 border">
+        <div class="col-10">
             <div *ngFor="let league of seasons">
                 {{league.season.slug}}
             </div>
