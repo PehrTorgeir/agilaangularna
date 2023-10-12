@@ -17,6 +17,7 @@ import { ActivatedRoute, Router, NavigationEnd, RouterLink, RouterOutlet } from 
 export class LeagueComponent implements OnInit {
   seasons: any[] = [];
   leagues: any[] = [];
+  standings: any[] = [];
   receivedData: string = '';
   constructor(private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) { }
 
@@ -34,6 +35,7 @@ export class LeagueComponent implements OnInit {
     this.seasons = [];
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
+      
       this.getSeasonsBasedOnLeague();
     });
 
@@ -45,9 +47,19 @@ export class LeagueComponent implements OnInit {
       if (league.name.toLowerCase() === this.receivedData.toLowerCase()) {
         this.leagueService.getSeasons(league.id).subscribe((response) => {
           this.seasons = response.leagues;
+          this.getStandingsForSeason(this.seasons[0].id);
+          
         });
+        
         break;
       }
     }
+  }
+
+  private getStandingsForSeason(seasonId: bigint) {
+    this.leagueService.getStandings(seasonId).subscribe((response) => {
+      
+      this.standings = response.groups[0].standings;
+    });
   }
 }

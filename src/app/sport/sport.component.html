@@ -1,9 +1,9 @@
 <body>
     <div class="row border">
         <div class="col-2 border ">
-                <div *ngFor="let leagueName of uniqueLeagueNames">
-                    <a [routerLink]="[leagueName]">{{transformWord(leagueName)}}</a>
-                </div>
+            <div *ngFor="let leagueName of uniqueLeagueNames">
+                <a [routerLink]="[leagueName]">{{transformWord(leagueName)}}</a>
+            </div>
 
         </div>
         <div class="col-10 border">

@@ -1,25 +1,25 @@
 <main class="container-fluid">
-  
+
   <div class="row nav-menu" style="text-align: center;">
-    <div class="col-2 hover" [routerLink]="['/']" (click)="setActiveClass(0)"
-    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: true}" >
+    <a class="col-2 hover" [routerLink]="['/']" (click)="setActiveClass(0)" routerLinkActive="active-nav-link"
+      [routerLinkActiveOptions]="{exact: true}">
       <img src="/assets/home.png" class="logosport">
       <p>Hem</p>
-    </div>
-    
-    <a class="col hover"[routerLink]="['/fotboll']"
-     routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
+    </a>
+
+    <a class="col hover" [routerLink]="['/fotboll']" routerLinkActive="active-nav-link"
+      [routerLinkActiveOptions]="{exact: false}">
       <img src="/assets/fotboll.png" class="logosport">
-      <p >Fotboll</p>
+      <p>Fotboll</p>
     </a>
-    <a class="col hover"[routerLink]="['/ishockey']"  
-    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
-      <img src="/assets/ishockey.png" class="logosport" >
-      <p >Ishockey</p>
+    <a class="col hover" [routerLink]="['/ishockey']" routerLinkActive="active-nav-link"
+      [routerLinkActiveOptions]="{exact: false}">
+      <img src="/assets/ishockey.png" class="logosport">
+      <p>Ishockey</p>
     </a>
-    <a class="col hover"[routerLink]="['/innebandy']" 
-    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
-      <img src="/assets/innebandy.png" class="logosport" >
+    <a class="col hover" [routerLink]="['/innebandy']" routerLinkActive="active-nav-link"
+      [routerLinkActiveOptions]="{exact: false}">
+      <img src="/assets/innebandy.png" class="logosport">
       <p>Innebandy</p>
     </a>
   </div>
