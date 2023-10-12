@@ -11,8 +11,11 @@
 }
 
 .not-active {
-    
     cursor: pointer;
+}
+.nav-menu a {
+    text-decoration: none;
+    color:black;
 }
 
 .hover:hover {
