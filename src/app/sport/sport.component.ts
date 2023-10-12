@@ -17,11 +17,11 @@ export class SportComponent implements OnInit {
   leagues: any[] = [];
   receivedData: string = '';
   uniqueLeagueNames: Set<string> = new Set<string>();
-
+    
   constructor(private dataService: DataService, private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+   this.route.params.subscribe(params => {
       const newReceivedData = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
       if (this.receivedData !== newReceivedData) {
         this.receivedData = newReceivedData;
@@ -46,7 +46,7 @@ export class SportComponent implements OnInit {
         if (league.sport.name === this.receivedData) {
           this.uniqueLeagueNames.add(league.name);
         }
-      }
-    });
+}
+});
   }
 }
