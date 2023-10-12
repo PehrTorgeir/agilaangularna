@@ -18,4 +18,9 @@ export class LeagueService {
     return this.http.get(apiUrl);
   }
 
+  getSeasons(leagueId: bigint): Observable<any> {
+    const apiUrl = `${this.baseUrl}/leagues/${leagueId}/seasons?apikey=${this.apiKey}`;
+    return this.http.get(apiUrl);
+  }
+
 }
