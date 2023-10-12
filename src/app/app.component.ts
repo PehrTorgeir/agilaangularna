@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterOutlet, RouterModule } from '@angular/router';
 import { DataService } from './data.service';
 import { NgClass } from '@angular/common';
 
@@ -11,6 +11,7 @@ import { NgClass } from '@angular/common';
     HomeComponent,
     RouterLink,
     RouterOutlet,
+    RouterModule,
     NgClass
   ],
   templateUrl: './app.component.html',

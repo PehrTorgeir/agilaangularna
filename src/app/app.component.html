@@ -1,29 +1,27 @@
-<main>
+<main class="container-fluid">
   
-  <div class="row border " style="text-align: center;">
-    <div class="col-2 hover " [routerLink]="['/']" (click)="setActiveClass(0)" [ngClass]="{'active': activeColumnIndex === 0,'not-active':activeColumnIndex!==0}" >
+  <div class="row border" style="text-align: center;">
+    <div class="col-2 hover" [routerLink]="['/']" (click)="setActiveClass(0)"
+    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: true}" >
       <img src="/assets/home.png" class="logosport">
       <p>Hem</p>
     </div>
     
-    <div class="col hover"[routerLink]="['/fotboll']"   [ngClass]="{'active': activeColumnIndex === 1,'not-active':activeColumnIndex!==1}" (click)="setActiveClass(1)" (click)="sendData('Fotboll')" >
+    <a class="col hover"[routerLink]="['/fotboll']"
+     routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
       <img src="/assets/fotboll.png" class="logosport">
-
       <p >Fotboll</p>
-
-    </div>
-    <div class="col hover"[routerLink]="['/ishockey']"  
-    
-
-    [ngClass]="{'active': activeColumnIndex === 2 ,'not-active':activeColumnIndex!==2}" 
-    (click)="setActiveClass(2)"  (click)="sendData('Ishockey')" >
+    </a>
+    <a class="col hover"[routerLink]="['/ishockey']"  
+    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
       <img src="/assets/ishockey.png" class="logosport" >
       <p >Ishockey</p>
-    </div>
-    <div class="col  hover"[routerLink]="['/innebandy']"  [ngClass]="{'active': activeColumnIndex === 3,'not-active':activeColumnIndex!==3}" (click)="setActiveClass(3)"  (click)="sendData('innebandy')">
+    </a>
+    <a class="col hover"[routerLink]="['/innebandy']" 
+    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
       <img src="/assets/innebandy.png" class="logosport" >
       <p>Innebandy</p>
-    </div>
+    </a>
   </div>
   <section class="content">
     <router-outlet></router-outlet>
