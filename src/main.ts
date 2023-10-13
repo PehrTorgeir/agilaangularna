@@ -11,6 +11,7 @@ bootstrapApplication(AppComponent,
     provideProtractorTestingSupport(),
     provideRouter(routes),
     provideHttpClient(),
+    provideAnimations(),
     provideAnimations()
 ]
   }
