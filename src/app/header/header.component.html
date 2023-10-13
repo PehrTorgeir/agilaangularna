@@ -5,11 +5,11 @@
 
     </div>
     <div class="row rowheight">
-    <div class="col-2 hover" [routerLink]="['/']" (click)="setActiveClass(0)"
+    <a class="col-2 hover" [routerLink]="['/']" (click)="setActiveClass(0)"
     routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: true}" >
       <img src="/assets/home.png" class="logosport">Hem
       
-    </div>
+    </a>
     
     <a class="col hover"[routerLink]="['/fotboll']"
      routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
