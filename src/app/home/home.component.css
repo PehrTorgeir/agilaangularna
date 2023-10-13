@@ -1,0 +1,15 @@
+.content {
+  
+    padding-top: 120px;
+  }
+  .fixedList{
+    position: fixed;
+   
+    
+    
+  }
+  .fixedList ul{
+    list-style-type: none;
+   
+    padding: 0;
+  }
