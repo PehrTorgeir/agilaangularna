@@ -8,20 +8,27 @@
                 <li>Spelarstatistik</li>
             </ul>
         </div>
-        <div class="col border">
-            <div *ngFor="let league of seasons">
-                {{ league.season.slug }}
-            </div>
-        </div>
-        <div class="col border">
-            <div *ngFor="let org of standings">
-                <div class="organization">
-                  {{ org.position }} {{ org.team.name }}
-                  <span class="stat" *ngFor="let stat of org.stats">
-                    {{ stat.name }}: {{ stat.value }}<span>, </span>
-                  </span>
+        <div class="col-10 border" style="display: flex; align-items: center; position: relative;">
+            <div>
+                <div *ngFor="let org of standings">
+                    <div class="organization">
+                        {{ org.position }} {{ org.team.name }}
+                        <span class="stat" *ngFor="let stat of org.stats">
+                            {{ stat.name }}: {{ stat.value }}<span>, </span>
+                        </span>
+                    </div>
                 </div>
-              </div>
+            </div>
+            <div style="position: absolute; top: 5%; right: 2%;">
+                <mat-form-field appearance="fill">
+                    <mat-label>Seasons</mat-label>
+                    <mat-select [formControl]="seasonControl" (selectionChange)="selectSeason($event.value)" panelClass="custom-panel">
+                        <mat-option *ngFor="let season of seasons" [value]="season">
+                            {{ season.season.slug }}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
         </div>
     </div>
 </body>
