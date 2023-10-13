@@ -3,13 +3,16 @@
     padding-top: 120px;
   }
   .fixedList{
-    position: fixed;
-   
-    
-    
+    position: fixed; 
+    width: 20%;
   }
   .fixedList ul{
     list-style-type: none;
-   
     padding: 0;
+    
+    
   }
+  
+  
+
+  
