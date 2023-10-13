@@ -1,12 +1,12 @@
-<body>
-    <div class="row border">
-        <div class="col-2 border ">
+<body class="content">
+    <div class="row ">
+        <div class="col-2">
                 <div *ngFor="let leagueName of uniqueLeagueNames">
                     <a [routerLink]="[leagueName]">{{transformWord(leagueName)}}</a>
                 </div>
 
         </div>
-        <div class="col-10 border">
+        <div class="col-10">
 
         </div>
     </div>

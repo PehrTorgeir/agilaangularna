@@ -1,29 +1,8 @@
-<main class="container-fluid">
+<main class="container-fluid padding">
   
-  <div class="row nav-menu" style="text-align: center;">
-    <a class="col-2 hover" [routerLink]="['/']"
-    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: true}" >
-      <img src="/assets/home.png" class="logosport">
-      <p>Hem</p>
-    </a>
-    
-    <a class="col hover"[routerLink]="['/fotboll']"
-     routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
-      <img src="/assets/fotboll.png" class="logosport">
-      <p >Fotboll</p>
-    </a>
-    <a class="col hover"[routerLink]="['/ishockey']"  
-    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
-      <img src="/assets/ishockey.png" class="logosport" >
-      <p >Ishockey</p>
-    </a>
-    <a class="col hover"[routerLink]="['/innebandy']" 
-    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
-      <img src="/assets/innebandy.png" class="logosport" >
-      <p>Innebandy</p>
-    </a>
-  </div>
+
   <section class="content">
-    <router-outlet></router-outlet>
+    <app-header></app-header>
   </section>
+  <router-outlet></router-outlet>
 </main>
