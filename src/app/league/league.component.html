@@ -8,10 +8,20 @@
                 <li>Spelarstatistik</li>
             </ul>
         </div>
-        <div class="col-10">
+        <div class="col-5 border">
             <div *ngFor="let league of seasons">
-                {{league.season.slug}}
+                {{ league.season.slug }}
             </div>
+        </div>
+        <div class="col-5 border">
+            <div *ngFor="let org of standings">
+                <div class="organization">
+                  {{ org.position }} {{ org.team.name }}
+                  <span class="stat" *ngFor="let stat of org.stats">
+                    {{ stat.name }}: {{ stat.value }}<span>, </span>
+                  </span>
+                </div>
+              </div>
         </div>
     </div>
 </body>
