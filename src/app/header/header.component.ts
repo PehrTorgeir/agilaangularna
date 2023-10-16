@@ -22,21 +22,22 @@ import { NgClass } from '@angular/common';
 export class HeaderComponent {
   activeColumnIndex: number | undefined;
   statusClass = 'hover-not-active';
- 
-  constructor(private dataService: DataService) {}
+  sidebarview: boolean = false;
 
-  sendData(message: string) {
+  constructor(private dataService: DataService) { }
+
+  sendData(message: boolean) {
     this.dataService.sendData(message);
-    
+
   }
   setActiveClass(index: number): void {
     this.activeColumnIndex = index;
   }
 
-  
-  
+
+
   title = 'agilaangularna';
-  
+
 
 
 }

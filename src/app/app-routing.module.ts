@@ -12,12 +12,12 @@ const routes: Routes = [
 },
 {
   path: ':sport',
-  component: SportComponent,
+  component: HomeComponent,
   title: 'Sport info'
 },
 {
   path: ':sport/:league',
-  component: LeagueComponent,
+  component: HomeComponent,
   title: 'League info'
 },
 ];

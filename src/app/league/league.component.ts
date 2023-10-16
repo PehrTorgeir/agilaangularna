@@ -7,6 +7,9 @@ import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { SidebarComponent } from '../sidebar/sidebar.component';
+import { HeaderComponent } from '../header/header.component';
+import { ContentComponent } from '../content/content.component';
 
 @Component({
   selector: 'app-league',
@@ -16,7 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     MatSelectModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule, SidebarComponent, HeaderComponent,ContentComponent
   ],
   templateUrl: './league.component.html',
   styleUrls: ['./league.component.css']
@@ -40,7 +43,7 @@ export class LeagueComponent implements OnInit {
       }
     });
   }
-  
+
   private getDataBasedOnMessage() {
     this.seasons = [];
     this.leagueService.getLeagues().subscribe((response) => {
@@ -48,7 +51,7 @@ export class LeagueComponent implements OnInit {
       this.getSeasonsBasedOnLeague();
     });
   }
-  
+
   private getSeasonsBasedOnLeague() {
     for (let index = 0; index < this.leagues.length; index++) {
       const league = this.leagues[index];
@@ -67,7 +70,7 @@ export class LeagueComponent implements OnInit {
 
   private getStandingsForSeason(seasonId: bigint) {
     this.leagueService.getStandings(seasonId).subscribe((response) => {
-      
+
       this.standings = response.groups[0].standings;
     });
   }

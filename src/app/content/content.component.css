@@ -1,19 +1,11 @@
 #content{
-    margin-left: 0;
+    margin-left: 20px;
+  
     padding: 10px;
     margin-top: 120px;
-    padding-left: 0;
+    padding-left: 10px;
     border: solid black;
-    padding-top: 0px;
+    width: auto;
+  
 }
-#content::before{
-    content: '';
-    position: absolute;
-    top: 150px;
-    right: 80%;
-    width: 8px; 
-    height: 80%; 
-    background-color: orange;
-    border-radius: 20px;
-    position: fixed;
-}
+

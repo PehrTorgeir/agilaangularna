@@ -1,36 +1,47 @@
-<body   class="container-fluid">
-    <div id="leftSideBackground" class="row ">
-        <div class="col-3 px-0">
-            <ul  id="menu" class="px-0" style="list-style-type: none; ">
-                <li>Översikt</li>
-                <li>Tabell</li>
-                <li>Spelschema</li>
-                <li>Spelarstatistik</li>
-            </ul>
-        </div>
-        <div id="rightSideBackground">
-        <div  class="col" style="display: flex; align-items: center; position: relative;">
-            <div>
-                <div *ngFor="let org of standings">
-                    <div class="organization">
-                        {{ org.position }} {{ org.team.name }}
-                        <span class="stat" *ngFor="let stat of org.stats">
-                            {{ stat.name }}: {{ stat.value }}<span>, </span>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div style="position: absolute; top: 5%; right: 2%;">
-                <mat-form-field appearance="fill">
-                    <mat-label>Seasons</mat-label>
-                    <mat-select [formControl]="seasonControl" (selectionChange)="selectSeason($event.value)" panelClass="custom-panel">
-                        <mat-option *ngFor="let season of seasons" [value]="season">
-                            {{ season.season.slug }}
-                        </mat-option>
-                    </mat-select>
-                </mat-form-field>
-            </div>
-        </div>
+<div class="row">
+    <div class="col">
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi consequatur maiores ipsum, eius vitae similique quisquam enim quas voluptatum cum voluptatibus nesciunt id, delectus ea eligendi quasi at iure quae.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt possimus rerum explicabo, sequi suscipit laborum eius ab, qui assumenda officiis, beatae perferendis. Deserunt eligendi sint repellat, voluptate incidunt non eaque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, in. Commodi beatae voluptate obcaecati velit impedit facere, debitis porro blanditiis excepturi aperiam error vel id odio necessitatibus ratione quibusdam. Quaerat.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur quibusdam possimus rem, ad dolore impedit laborum voluptates nulla maiores provident ipsum dolorem nemo, repellendus quas fugiat! Eligendi, atque obcaecati?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi consequatur maiores ipsum, eius vitae similique quisquam enim quas voluptatum cum voluptatibus nesciunt id, delectus ea eligendi quasi at iure quae.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt possimus rerum explicabo, sequi suscipit laborum eius ab, qui assumenda officiis, beatae perferendis. Deserunt eligendi sint repellat, voluptate incidunt non eaque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, in. Commodi beatae voluptate obcaecati velit impedit facere, debitis porro blanditiis excepturi aperiam error vel id odio necessitatibus ratione quibusdam. Quaerat.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur quibusdam possimus rem, ad dolore impedit laborum voluptates nulla maiores provident ipsum dolorem nemo, repellendus quas fugiat! Eligendi, atque obcaecati?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi consequatur maiores ipsum, eius vitae similique quisquam enim quas voluptatum cum voluptatibus nesciunt id, delectus ea eligendi quasi at iure quae.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt possimus rerum explicabo, sequi suscipit laborum eius ab, qui assumenda officiis, beatae perferendis. Deserunt eligendi sint repellat, voluptate incidunt non eaque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, in. Commodi beatae voluptate obcaecati velit impedit facere, debitis porro blanditiis excepturi aperiam error vel id odio necessitatibus ratione quibusdam. Quaerat.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur quibusdam possimus rem, ad dolore impedit laborum voluptates nulla maiores provident ipsum dolorem nemo, repellendus quas fugiat! Eligendi, atque obcaecati?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi consequatur maiores ipsum, eius vitae similique quisquam enim quas voluptatum cum voluptatibus nesciunt id, delectus ea eligendi quasi at iure quae.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt possimus rerum explicabo, sequi suscipit laborum eius ab, qui assumenda officiis, beatae perferendis. Deserunt eligendi sint repellat, voluptate incidunt non eaque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, in. Commodi beatae voluptate obcaecati velit impedit facere, debitis porro blanditiis excepturi aperiam error vel id odio necessitatibus ratione quibusdam. Quaerat.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur quibusdam possimus rem, ad dolore impedit laborum voluptates nulla maiores provident ipsum dolorem nemo, repellendus quas fugiat! Eligendi, atque obcaecati?
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi consequatur maiores ipsum, eius vitae similique quisquam enim quas voluptatum cum voluptatibus nesciunt id, delectus ea eligendi quasi at iure quae.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt possimus rerum explicabo, sequi suscipit laborum eius ab, qui assumenda officiis, beatae perferendis. Deserunt eligendi sint repellat, voluptate incidunt non eaque!
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, in. Commodi beatae voluptate obcaecati velit impedit facere, debitis porro blanditiis excepturi aperiam error vel id odio necessitatibus ratione quibusdam. Quaerat.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus, consequuntur quibusdam possimus rem, ad dolore impedit laborum voluptates nulla maiores provident ipsum dolorem nemo, repellendus quas fugiat! Eligendi, atque obcaecati?
+
     </div>
+</div>
+
+
+<!-- <div *ngFor="let org of standings">
+    <div class="organization">
+        {{ org.position }} {{ org.team.name }}
+        <span class="stat" *ngFor="let stat of org.stats">
+            {{ stat.name }}: {{ stat.value }}<span>, </span>
+        </span>
     </div>
-</body>
+</div>
+
+<div>
+    <mat-form-field appearance="fill">
+        <mat-label>Seasons</mat-label>
+        <mat-select [formControl]="seasonControl" (selectionChange)="selectSeason($event.value)"
+            panelClass="custom-panel">
+            <mat-option *ngFor="let season of seasons" [value]="season">
+                {{ season.season.slug }}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</div> -->

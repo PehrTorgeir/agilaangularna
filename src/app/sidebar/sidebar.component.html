@@ -2,10 +2,17 @@
 <body>
     <div id="sidebar" class="row">
         <div class="col">
-            <div  *ngFor="let leagueName of uniqueLeagueNames">
-                <a [routerLink]="[leagueName]">{{transformWord(leagueName)}}</a>
+            <div  [style.display]="toggleSidebarContent ? 'block' : 'none'" *ngFor="let leagueName of uniqueLeagueNames">
+                <a id="text" [routerLink]="[createLink(leagueName)]">{{transformWord(leagueName)}}</a>
+            </div>
+            <div [style.display]="!toggleSidebarContent ? 'block' : 'none'">
+                <ul id="text" class="px-0" style="list-style-type: none; ">
+                    <li>Översikt</li>
+                    <li>Tabell</li>
+                    <li>Spelschema</li>
+                    <li>Spelarstatistik</li>
+                </ul>
             </div>
         </div>
-
     </div>
 </body>
