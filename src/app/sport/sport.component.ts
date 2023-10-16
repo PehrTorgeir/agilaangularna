@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
+
 import { LeagueService } from '../league.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
-
+import { HeaderComponent } from '../header/header.component';
 @Component({
   selector: 'app-sport',
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,HeaderComponent
   ],
   templateUrl: './sport.component.html',
   styleUrls: ['./sport.component.css']

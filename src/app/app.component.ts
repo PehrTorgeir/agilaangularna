@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
-import { RouterLink, RouterOutlet, RouterModule } from '@angular/router';
-import { DataService } from './data.service';
-import { NgClass } from '@angular/common';
-import { HeaderComponent } from './header/header.component';
+import { RouterLink, RouterOutlet } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-root',
@@ -12,9 +11,7 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
     RouterLink,
     RouterOutlet,
-    RouterModule,
-    NgClass,
-    HeaderComponent
+   
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']

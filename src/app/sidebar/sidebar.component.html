@@ -1,0 +1,11 @@
+
+<body>
+    <div id="sidebar" class="row">
+        <div class="col">
+            <div  *ngFor="let leagueName of uniqueLeagueNames">
+                <a [routerLink]="[leagueName]">{{transformWord(leagueName)}}</a>
+            </div>
+        </div>
+
+    </div>
+</body>

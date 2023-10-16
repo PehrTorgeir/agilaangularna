@@ -1,7 +1,60 @@
-<body class="content">
+<div id="home">
+
+
+<div class="row">
+    <div class="col">
+        <app-header></app-header>
+    </div>
+    
+</div>
+
+
+<div class="row">
+    <div class="col">
+        <app-sidebar></app-sidebar>
+    </div>
+    <div class="col-9">
+        <div>
+            <app-content></app-content>
+        </div>
+
+    </div>
+    
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <body class="container-fluid">
     <div class="row">
-        <div class="col-3 px-0  ">
-            <div class="fixedList">
+        <div id="leftSideBackground" class="col-3">
+            <div id="menu" class="fixedList">
 
                 <div *ngFor="let leagueName of uniqueLeagueNames">
                     <a [routerLink]="[createLink(leagueName)]">{{transformWord(leagueName)}}</a>
@@ -11,7 +64,7 @@
 
         </div>
 
-        <div class="col-9 ">
+        <div id="rightSideBackground" class="col ">
             <div *ngFor="let sport of sports">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, dignissimos vero? Amet dolorem nisi
                 dicta fuga eveniet magnam odit quasi assumenda explicabo hic nemo, ratione commodi voluptatem ipsum
@@ -65,4 +118,4 @@
             </div>
         </div>
     </div>
-</body>
+</body> -->

@@ -1,32 +1,70 @@
+<header class="row" id="header">
+  <div class="col-3">
+    <a id="logo" class="col-3 hover" [routerLink]="['/']" (click)="setActiveClass(0)" routerLinkActive="active-nav-link"
+    [routerLinkActiveOptions]="{exact: true}">
+    <img src="/assets/home.png" class="logosport"><b  class="textcolor">Sporty Sport</b>
 
-<div class="row nav-menu" style="text-align: center;">
-    <div class="row px-0">
-        <img src="https://app.logopony.com/preview/a9d293f5-79e3-4ea9-890c-e2540c5901ec" height="80px" alt="">
+  </a>
+  </div>
+  <div class="col">
+    <a class="col hover" [routerLink]="['/fotboll']" routerLinkActive="active-nav-link"
+        [routerLinkActiveOptions]="{exact: false}">
+        <img src="/assets/fotboll.png" class="logosport"><b class="textcolor">Fotboll</b>
 
-    </div>  
-    <div class="row rowheight">
-    <a class="col-3 hover" [routerLink]="['/']" (click)="setActiveClass(0)"
-    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: true}" >
-      <img src="/assets/home.png" class="logosport"><b class="textcolor">Hem</b>
-      
-    </a>
-    
-    <a class="col hover"[routerLink]="['/fotboll']"
-     routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
-      <img src="/assets/fotboll.png" class="logosport"><b class="textcolor">Fotboll</b>
-     
-    </a>
-    <a class="col hover"[routerLink]="['/ishockey']"  
-    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
-      <img src="/assets/ishockey.png" class="logosport" ><b class="textcolor">Ishockey</b>
-     
-    </a>
-    <a class="col hover"[routerLink]="['/innebandy']" 
-    routerLinkActive="active-nav-link" [routerLinkActiveOptions]="{exact: false}">
-      <img src="/assets/innebandy.png" class="logosport" ><b class="textcolor">Innebandy</b>
-      
-    </a>
-</div>
-  
+      </a>
+  </div>
+  <div class="col">
+    <a class="col hover" [routerLink]="['/ishockey']" routerLinkActive="active-nav-link"
+    [routerLinkActiveOptions]="{exact: false}">
+    <img src="/assets/ishockey.png" class="logosport"><b class="textcolor">Ishockey</b>
+
+  </a>
+  </div>
+  <div class="col">
+    <a class="col hover" [routerLink]="['/innebandy']" routerLinkActive="active-nav-link"
+    [routerLinkActiveOptions]="{exact: false}">
+    <img src="/assets/innebandy.png" class="logosport"><b class="textcolor">Innebandy</b>
+
+  </a>
   </div>
 
+
+</header>
+
+
+
+
+<!-- <body>
+  <div id="header" class="row nav-menu" style="text-align: center;">
+    <div  class="row  px-0">
+
+
+    
+    <div class="row rowheight">
+
+     
+      <a id="logo" class="col-3 hover" [routerLink]="['/']" (click)="setActiveClass(0)" routerLinkActive="active-nav-link"
+        [routerLinkActiveOptions]="{exact: true}">
+        <img src="/assets/home.png" class="logosport"><b  class="textcolor">Sporty Sport</b>
+
+      </a>
+
+      <a class="col hover" [routerLink]="['/fotboll']" routerLinkActive="active-nav-link"
+        [routerLinkActiveOptions]="{exact: false}">
+        <img src="/assets/fotboll.png" class="logosport"><b class="textcolor">Fotboll</b>
+
+      </a>
+      <a class="col hover" [routerLink]="['/ishockey']" routerLinkActive="active-nav-link"
+        [routerLinkActiveOptions]="{exact: false}">
+        <img src="/assets/ishockey.png" class="logosport"><b class="textcolor">Ishockey</b>
+
+      </a>
+      <a class="col hover" [routerLink]="['/innebandy']" routerLinkActive="active-nav-link"
+        [routerLinkActiveOptions]="{exact: false}">
+        <img src="/assets/innebandy.png" class="logosport"><b class="textcolor">Innebandy</b>
+
+      </a>
+    </div>
+  </div>
+  </div>
+</body> -->
