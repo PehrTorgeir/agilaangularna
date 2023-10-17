@@ -28,4 +28,30 @@ export class LeagueService {
     return this.http.get(apiUrl);
   }
 
+  getScoringLeaders(leagueId: bigint): Observable<any> {
+    const apiUrl = `${this.baseUrl}/leagues/${leagueId}/scoring-leaders?limit=10&apikey=${this.apiKey}`;
+    return this.http.get(apiUrl);
+  }
+
+  getAssistLeaders(leagueId: bigint): Observable<any> {
+    const apiUrl = `${this.baseUrl}/leagues/${leagueId}/assist-leaders?limit=10&apikey=${this.apiKey}`;
+    return this.http.get(apiUrl);
+  }
+
+  getPointLeaders(leagueId: bigint): Observable<any> {
+    const apiUrl = `${this.baseUrl}/leagues/${leagueId}/point-leaders?limit=10&apikey=${this.apiKey}`;
+    return this.http.get(apiUrl);
+  }
+
+  // Vi har ej access till nedanstående data
+
+  // getBookingLeaders(leagueId: bigint): Observable<any> {
+  //   const apiUrl = `${this.baseUrl}/leagues/${leagueId}/booking-leaders?limit=10&apikey=${this.apiKey}`;
+  //   return this.http.get(apiUrl);
+  // }
+
+  // getSentOffLeaders(leagueId: bigint): Observable<any> {
+  //   const apiUrl = `${this.baseUrl}/leagues/${leagueId}/sent-off-leaders?limit=10&apikey=${this.apiKey}`;
+  //   return this.http.get(apiUrl);
+  // }
 }

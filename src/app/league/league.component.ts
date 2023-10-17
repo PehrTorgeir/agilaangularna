@@ -31,12 +31,21 @@ import { ContentComponent } from '../content/content.component';
 export class LeagueComponent implements OnInit {
   seasons: any[] = [];
   leagues: any[] = [];
+  
   recentEvents: any[] = [];
   standings: any[] = [];
+  scoringLeaders: any[] = [];
+  assistLeaders: any[] = [];
+  pointLeaders: any[] = [];
+  // bookingLeaders: any[] = [];
+  // sentOffLeaders: any[] = [];
+  
   receivedData: string = '';
   selectedSeason: any;
   leagueName: string = '';
   seasonControl = new FormControl();
+
+  doesLeagueExist: boolean = false;
 
   constructor(private eventService: EventService, private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) { }
 
@@ -44,10 +53,11 @@ export class LeagueComponent implements OnInit {
     this.route.params.subscribe(params => {
       if ('league' in params) {
         const newReceivedData = params['league'].charAt(0).toUpperCase() + params['league'].slice(1);
-      if (this.receivedData !== newReceivedData) {
-        this.receivedData = newReceivedData;
-        this.getDataBasedOnMessage();
-      }
+        if (this.receivedData !== newReceivedData) {
+          this.receivedData = newReceivedData;
+          this.getDataBasedOnMessage();
+          this.doesLeagueExist = true;
+        }
       }
     });
   }
@@ -66,43 +76,54 @@ export class LeagueComponent implements OnInit {
       if (league.name.toLowerCase() === this.receivedData.toLowerCase()) {
         this.leagueService.getSeasons(league.id).subscribe((response) => {
           this.seasons = response.leagues;
-          this.getStandingsForSeason(this.seasons[0].id);
+          this.getLeagueStats(this.seasons[0].id);
           this.leagueName = this.seasons[0].name;
           if (this.seasons.length > 0) {
             this.seasonControl.setValue(this.seasons[0]);
           }
-          console.log(this.seasons);
-
         });
         break;
       }
     }
   }
 
-  private getStandingsForSeason(seasonId: bigint) {
-    this.leagueService.getStandings(seasonId).subscribe((response) => {
-      this.standings = response.groups[0].standings;
-    });
-    this.getRecentEventsForSeason(seasonId);
-  }
-
-  private getRecentEventsForSeason(seasonId: bigint) {
-    this.eventService.getRecentEvents(seasonId).subscribe((response) => {
-      this.recentEvents = response.events;
-      console.log(this.standings);
-      
-    })
-  }
-
   selectSeason(season: any) {
     this.selectedSeason = season;
-    this.leagueService.getStandings(season.id).subscribe((response) => {
-      this.standings = response.groups[0].standings;
-    })
-    this.eventService.getRecentEvents(season.id).subscribe((response) => {
-      this.recentEvents = response.events;
-    }
-    )
+    this.getLeagueStats(season.id);
   }
+
+  private getLeagueStats(seasonId: bigint) {
+
+    this.leagueService.getStandings(seasonId).subscribe((response) => { //Sets the standings
+      this.standings = response.groups[0].standings;
+    });
+
+    this.eventService.getRecentEvents(seasonId).subscribe((response) => { //Sets the recent events
+      this.recentEvents = response.events;
+    })
+
+    this.leagueService.getScoringLeaders(seasonId).subscribe((response) => { //Sets the scoring leaders
+      this.scoringLeaders = response.playerStats;
+    });
+
+    this.leagueService.getAssistLeaders(seasonId).subscribe((response) => { //Sets the assist leaders
+      this.assistLeaders = response.playerStats;
+    });
+
+    this.leagueService.getPointLeaders(seasonId).subscribe((response) => { //Sets the point leaders
+      this.pointLeaders = response.playerStats;
+    });
+
+    // Vi har ej access till nedanstående data
+
+    // this.leagueService.getBookingLeaders(seasonId).subscribe((response) => { //Sets the booking leaders
+    //   this.bookingLeaders = response.groups[0].standings;
+    // });
+
+    // this.leagueService.getSentOffLeaders(seasonId).subscribe((response) => { //Sets the sent off leaders
+    //   this.sentOffLeaders = response.groups[0].standings;
+    // });
+  }
+
 
 }
