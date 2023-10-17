@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class MatchService {
+export class EventService {
   baseUrl = 'https://api.everysport.com/v1';
   apiKey = '26192887ec48f76ab54167238ae16688';
 
@@ -16,6 +16,11 @@ export class MatchService {
   getMatches(ofLeague:BigInt): Observable<any> {
     const apiUrl = `${this.baseUrl}/events?league=${ofLeague}&apikey=${this.apiKey}`;
     console.log(apiUrl);
+    return this.http.get(apiUrl);
+  }
+
+  getRecentEvents(leagueId: bigint): Observable<any> {
+    const apiUrl = `${this.baseUrl}/events?fields=all&limit=10&sort=startDate%3Adesc&league=${leagueId}&apikey=${this.apiKey}`;
     return this.http.get(apiUrl);
   }
 

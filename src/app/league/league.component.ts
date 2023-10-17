@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { LeagueService } from '../league.service';
+import { EventService } from '../event.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
 import { FormControl } from '@angular/forms';
@@ -19,8 +20,8 @@ import { ContentComponent } from '../content/content.component';
     CommonModule,
     MatSelectModule,
     MatFormFieldModule,
-    ReactiveFormsModule, 
-    SidebarComponent, 
+    ReactiveFormsModule,
+    SidebarComponent,
     HeaderComponent,
     ContentComponent
   ],
@@ -30,12 +31,13 @@ import { ContentComponent } from '../content/content.component';
 export class LeagueComponent implements OnInit {
   seasons: any[] = [];
   leagues: any[] = [];
+  recentEvents: any[] = [];
   standings: any[] = [];
   receivedData: string = '';
   selectedSeason: any;
   seasonControl = new FormControl();
 
-  constructor(private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private eventService: EventService, private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -50,7 +52,7 @@ export class LeagueComponent implements OnInit {
   private getDataBasedOnMessage() {
     this.seasons = [];
     this.leagueService.getLeagues().subscribe((response) => {
-      this.leagues = response.leagues;   
+      this.leagues = response.leagues;
       this.getSeasonsBasedOnLeague();
     });
   }
@@ -65,6 +67,8 @@ export class LeagueComponent implements OnInit {
           if (this.seasons.length > 0) {
             this.seasonControl.setValue(this.seasons[0]);
           }
+          console.log(this.seasons);
+
         });
         break;
       }
@@ -72,9 +76,18 @@ export class LeagueComponent implements OnInit {
   }
 
   private getStandingsForSeason(seasonId: bigint) {
-    this.leagueService.getStandings(seasonId).subscribe((response) => {    
+    this.leagueService.getStandings(seasonId).subscribe((response) => {
       this.standings = response.groups[0].standings;
     });
+    this.getRecentEventsForSeason(seasonId);
+  }
+
+  private getRecentEventsForSeason(seasonId: bigint) {
+    this.eventService.getRecentEvents(seasonId).subscribe((response) => {
+      this.recentEvents = response.events;
+      console.log(this.recentEvents);
+      
+    })
   }
 
   selectSeason(season: any) {
