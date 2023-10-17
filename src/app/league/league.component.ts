@@ -31,7 +31,7 @@ import { ContentComponent } from '../content/content.component';
 export class LeagueComponent implements OnInit {
   seasons: any[] = [];
   leagues: any[] = [];
-  
+
   recentEvents: any[] = [];
   standings: any[] = [];
   scoringLeaders: any[] = [];
@@ -39,7 +39,7 @@ export class LeagueComponent implements OnInit {
   pointLeaders: any[] = [];
   // bookingLeaders: any[] = [];
   // sentOffLeaders: any[] = [];
-  
+
   receivedData: string = '';
   selectedSeason: any;
   leagueName: string = '';
@@ -68,7 +68,7 @@ export class LeagueComponent implements OnInit {
       this.leagues = response.leagues;
       this.getSeasonsBasedOnLeague();
     });
-      }
+  }
 
   private getSeasonsBasedOnLeague() {
     for (let index = 0; index < this.leagues.length; index++) {
@@ -90,7 +90,7 @@ export class LeagueComponent implements OnInit {
   selectSeason(season: any) {
     this.selectedSeason = season;
     this.getLeagueStats(season.id);
-      }
+  }
 
   private getLeagueStats(seasonId: bigint) {
 
@@ -100,8 +100,8 @@ export class LeagueComponent implements OnInit {
 
     this.eventService.getRecentEvents(seasonId).subscribe((response) => { //Sets the recent events
       this.recentEvents = response.events;
-          })
-    
+    })
+
     this.leagueService.getScoringLeaders(seasonId).subscribe((response) => { //Sets the scoring leaders
       this.scoringLeaders = response.playerStats;
     });
