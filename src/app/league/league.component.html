@@ -67,8 +67,8 @@
     </div>
 </div>
 
-<div class="row">
-    <div class="col-3" *ngIf="doesLeagueExist">
+<div class="row" *ngIf="doesLeagueExist">
+    <div class="col-3">
         <h5>Skytteliga:</h5>
         <div class="event-row" *ngFor="let player of scoringLeaders">
             <div>
