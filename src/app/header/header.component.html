@@ -1,24 +1,24 @@
 <header class="row">
-  <div class="col-3">
+  <div id="logocolumn" class="col-3">
     <a id="logo" class="col-3 hover" [routerLink]="['/']" (click)="setActiveClass(0)" routerLinkActive="active-nav-link"
       [routerLinkActiveOptions]="{exact: true}">
-      <img src="/assets/home.png" class="logosport"><b class="textcolor">Sporty Sport</b>
+      <p>Sporty Sport</p>
     </a>
   </div>
-  <div class="col">
-    <a class="col" [routerLink]="['/fotboll']" routerLinkActive="active-nav-link"
+  <div  id="sportcolumn" class="col">
+    <a id="sportbtn"class="col" [routerLink]="['/fotboll']" routerLinkActive="active-nav-link"
       [routerLinkActiveOptions]="{exact: false}">
       <img src="/assets/fotboll.png" class="logosport"><b class="textcolor">Fotboll</b>
     </a>
   </div>
-  <div class="col">
-    <a class="col hover" [routerLink]="['/ishockey']" routerLinkActive="active-nav-link"
+  <div  id="sportcolumn"class="col">
+    <a id="sportbtn" class="col hover" [routerLink]="['/ishockey']" routerLinkActive="active-nav-link"
       [routerLinkActiveOptions]="{exact: false}">
       <img src="/assets/ishockey.png" class="logosport"><b class="textcolor">Ishockey</b>
     </a>
   </div>
-  <div class="col">
-    <a class="col hover" [routerLink]="['/innebandy']" routerLinkActive="active-nav-link"
+  <div  id="sportcolumn"class="col">
+    <a id="sportbtn" class="col hover" [routerLink]="['/innebandy']" routerLinkActive="active-nav-link"
       [routerLinkActiveOptions]="{exact: false}">
       <img src="/assets/innebandy.png" class="logosport"><b class="textcolor">Innebandy</b>
     </a>
