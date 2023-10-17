@@ -3,27 +3,9 @@
      height: 25px;
  }
 
- #header {
-     padding: 20px;
-     background-color: white;
-     position: fixed;
-     width: 110%;
-     height: 100px;
-     background-color: white;
-     z-index: 100;
 
- }
 
- #header::after {
-     content: '';
-     position: absolute;
-     left: 1%;
-     width: 88%;
-     height: 8px;
-     background-color: orange;
-     bottom: 0;
-     border-radius: 20px;
- }
+
 
  .inverted-2 {
      background:
