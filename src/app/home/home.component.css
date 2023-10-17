@@ -20,30 +20,28 @@
     border-radius: 20px;
 }
 
-.sidebar {
-   
-   
+#sidebar {
     background-color: white;
     border: solid 2px orange;
     border-radius: 5px;
     border-width: 5px;
     height: fit-content;
-    width: 20%;
     width: fit-content;
     position: fixed;
     padding: 10px;
 
 }
-.content{
-    
-}
 
 
-#headerNcontent{
-   padding: auto;
+#margin{
     margin-top: 140px;
-    
+    margin-left: 20px;
+   
+   
 }
+
+
+
 
 
 @media(max-width:900px) {
