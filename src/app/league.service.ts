@@ -25,7 +25,6 @@ export class LeagueService {
 
   getStandings(leagueId: bigint): Observable<any> {
     const apiUrl = `${this.baseUrl}/leagues/${leagueId}/standings?apikey=${this.apiKey}`;
-
     return this.http.get(apiUrl);
   }
 

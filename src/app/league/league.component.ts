@@ -19,7 +19,10 @@ import { ContentComponent } from '../content/content.component';
     CommonModule,
     MatSelectModule,
     MatFormFieldModule,
-    ReactiveFormsModule, SidebarComponent, HeaderComponent,ContentComponent
+    ReactiveFormsModule, 
+    SidebarComponent, 
+    HeaderComponent,
+    ContentComponent
   ],
   templateUrl: './league.component.html',
   styleUrls: ['./league.component.css']
@@ -47,7 +50,7 @@ export class LeagueComponent implements OnInit {
   private getDataBasedOnMessage() {
     this.seasons = [];
     this.leagueService.getLeagues().subscribe((response) => {
-      this.leagues = response.leagues;
+      this.leagues = response.leagues;   
       this.getSeasonsBasedOnLeague();
     });
   }
@@ -69,8 +72,7 @@ export class LeagueComponent implements OnInit {
   }
 
   private getStandingsForSeason(seasonId: bigint) {
-    this.leagueService.getStandings(seasonId).subscribe((response) => {
-
+    this.leagueService.getStandings(seasonId).subscribe((response) => {    
       this.standings = response.groups[0].standings;
     });
   }

@@ -33,11 +33,6 @@ export class HeaderComponent {
   setActiveClass(index: number): void {
     this.activeColumnIndex = index;
   }
-
-
-
+  
   title = 'agilaangularna';
-
-
-
 }
