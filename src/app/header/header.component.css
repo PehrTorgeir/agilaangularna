@@ -1,29 +1,63 @@
  .logosport {
      width: 25px;
      height: 25px;
+     
+ }
+ #sportbtn{
+   
+    text-decoration: none;
+    color: black;
+
+ }
+ #sportcolumn{
+    padding-top: 60px;
+    white-space: nowrap;
+    
+    
+ }
+ #logocolumn{
+    padding-top: 20px;
  }
 
 
+#logo{
+    max-height: max-content;
+    font-size: 300%;
+    font-weight: bold;
+    text-decoration: none;
+    transition: font-size 0.3 ease;
+}
+@media(max-width:1500px) {
+    #logo {
+        
+        transition: font-size 0.3s ease;
+    }
+   
+}
+@media(max-width:1300px) {
+    #logo {
+     
+        font-size: 200%;
+        transition: font-size 0.3s ease;
+       
+
+    }
+    #logocolumn{
+        padding-top: 40px;
+        transition: padding-top 0.5 ease;
+    }
+}
+@media(max-width:880px) {
+  
+    #logocolumn{
+        padding-top: 0px;
+        transition: padding-top 0.5 ease;
+    }
+}
 
 
 
- .inverted-2 {
-     background:
-         linear-gradient(90deg, #000 50%, #fff 0),
-         linear-gradient(-90deg, #000 50%, #fff 0),
-         linear-gradient(90deg, #0000 50%, #000 0),
-         linear-gradient(-90deg, #0000 50%, #000 0);
-     background-repeat: no-repeat;
-     background-size: 200% 51%;
-     background-position: top left, bottom right;
-     -webkit-background-clip: text, text, padding-box, padding-box;
-     background-clip: text, text, padding-box, padding-box;
-     transition: 0.8s
- }
 
- .inverted-2:hover {
-     background-position: top right, bottom left;
- }
 
  /*
 #header{
