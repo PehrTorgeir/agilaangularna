@@ -35,16 +35,19 @@ export class LeagueComponent implements OnInit {
   standings: any[] = [];
   receivedData: string = '';
   selectedSeason: any;
+  leagueName: string = '';
   seasonControl = new FormControl();
 
   constructor(private eventService: EventService, private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      const newReceivedData = params['league'].charAt(0).toUpperCase() + params['league'].slice(1);
+      if ('league' in params) {
+        const newReceivedData = params['league'].charAt(0).toUpperCase() + params['league'].slice(1);
       if (this.receivedData !== newReceivedData) {
         this.receivedData = newReceivedData;
         this.getDataBasedOnMessage();
+      }
       }
     });
   }
@@ -64,6 +67,7 @@ export class LeagueComponent implements OnInit {
         this.leagueService.getSeasons(league.id).subscribe((response) => {
           this.seasons = response.leagues;
           this.getStandingsForSeason(this.seasons[0].id);
+          this.leagueName = this.seasons[0].name;
           if (this.seasons.length > 0) {
             this.seasonControl.setValue(this.seasons[0]);
           }
