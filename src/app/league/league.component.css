@@ -1,1 +1,19 @@
-  
+.col table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.column-header,
+.column-data {
+    padding: 5px; /* Adjust this value as needed */
+}
+
+.col tr {
+    border-bottom: 2px solid #ffa200; /* Add a line below each row */
+}
+
+.event-row {
+    border-bottom: 2px solid #ffa200;
+    padding: 5px;
+    width: 49%;
+}

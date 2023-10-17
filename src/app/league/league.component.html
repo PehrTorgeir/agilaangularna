@@ -1,22 +1,23 @@
-<div class="row">
+<div class="row" style="margin-bottom: 30px;">
     <div class="col">
         <table>
             <thead>
                 <tr>
-                    <th>Pos</th>
-                    <th>Team</th>
-                    <th *ngFor="let stat of standings[0]?.stats">
+                    <th class="column-header">Pos</th>
+                    <th class="column-header">Team</th>
+                    <th class="column-header"></th>
+                    <th class="column-header" *ngFor="let stat of standings[0]?.stats">
                         {{ stat?.name?.toUpperCase() }}
-                        
                     </th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let org of standings; let i = index">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ org.team.name }}</td>
+                    <td class="column-data">{{ i + 1 }}</td>
+                    <td class="column-data"><img width="30px" height="30px" src="{{org.team.logo}}"></td>
+                    <td class="column-data">{{ org.team.name }}</td>
                     <ng-container *ngFor="let stat of org.stats">
-                        <td>{{ stat.value }}</td>
+                        <td class="column-data">{{ stat.value }}</td>
                     </ng-container>
                 </tr>
             </tbody>
@@ -32,6 +33,22 @@
                 </mat-option>
             </mat-select>
         </mat-form-field>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <h2>Senaste matcherna:</h2>
+        <div class="event-row" *ngFor="let event of recentEvents">
+            <div>
+                <img width="28px" height="30px" src="{{event.homeTeam.logo}}">
+                {{event.homeTeam.name}} {{event.homeTeamScore}}
+            </div>
+            <div>
+                <img width="28px" height="30px" src="{{event.visitingTeam.logo}}">
+                {{event.visitingTeam.name}} {{event.visitingTeamScore}}
+            </div>
+        </div>
     </div>
 </div>
 

@@ -85,7 +85,7 @@ export class LeagueComponent implements OnInit {
   private getRecentEventsForSeason(seasonId: bigint) {
     this.eventService.getRecentEvents(seasonId).subscribe((response) => {
       this.recentEvents = response.events;
-      console.log(this.recentEvents);
+      console.log(this.standings);
       
     })
   }
@@ -95,6 +95,10 @@ export class LeagueComponent implements OnInit {
     this.leagueService.getStandings(season.id).subscribe((response) => {
       this.standings = response.groups[0].standings;
     })
+    this.eventService.getRecentEvents(season.id).subscribe((response) => {
+      this.recentEvents = response.events;
+    }
+    )
   }
 
 }
