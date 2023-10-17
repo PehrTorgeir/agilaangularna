@@ -16,8 +16,9 @@
     border-bottom: 2px solid #ffa200;
     padding: 5px;
     width: 49%;
+    height: 10%;
 }
 
 .row {
-    margin-bottom: 30px;
+    margin-bottom: 50px;
 }
