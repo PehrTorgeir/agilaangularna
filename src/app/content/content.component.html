@@ -1,4 +1,4 @@
 <div>
-    <app-league></app-league>
-
+    <app-home-view *ngIf="homeView"></app-home-view>
+    <app-league *ngIf="!homeView"></app-league>
 </div>

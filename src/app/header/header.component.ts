@@ -30,6 +30,7 @@ export class HeaderComponent {
     this.dataService.sendData(message);
 
   }
+  
   setActiveClass(index: number): void {
     this.activeColumnIndex = index;
   }

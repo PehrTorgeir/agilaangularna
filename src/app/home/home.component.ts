@@ -17,7 +17,7 @@ import { ContentComponent } from '../content/content.component';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent {
-
+  
 
 
 
