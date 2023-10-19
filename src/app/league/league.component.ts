@@ -80,7 +80,7 @@ export class LeagueComponent implements OnInit {
           this.seasons = response.leagues;
           this.getLeagueStats(this.seasons[0].id);
           this.leagueName = this.seasons[0].name;
-
+          this.getColor(1);
           if (this.seasons.length > 0) {
             this.seasonControl.setValue(this.seasons[0]);
           }
@@ -141,7 +141,7 @@ export class LeagueComponent implements OnInit {
     } else if (this.leagueName.toLowerCase() === 'allsvenskan') {
       this.colorDescription = 'Blue = Champions league Qualifier, Orange = Europa Conference League Qualifier, Yellow = Relegation Qualifier, Red = Relegated'
       if (index == 1) {
-        return 'blue';
+        return '#0b96e6';
       } else if (index >= 2 && index <= 3) { 
         return '#cc8006';
       } else if (index == 14) { 
@@ -152,7 +152,7 @@ export class LeagueComponent implements OnInit {
     } else if (this.leagueName.toLowerCase() === 'damallsvenskan') {
       this.colorDescription = 'Blue = Champions League Qualifier, Yellow = Relegation Qualifier, Red = Relegated'
       if (index >= 1 && index <= 3) {
-        return 'blue';
+        return '#0b96e6';
       } else if (index == 12) { 
         return 'yellow';
       } else if (index >= 13 && index <= 14) { 
@@ -161,7 +161,7 @@ export class LeagueComponent implements OnInit {
     } else if (this.leagueName.toLowerCase() === 'superettan') {
       this.colorDescription = 'Blue = Promoted, Orange = Promotion Qualifier, Yellow = Relegation Qualifier, Red = Relegated'
       if (index >= 1 && index <= 2) {
-        return 'blue';
+        return '#0b96e6';
       } else if (index == 3) {
         return '#cc8006';
       } else if (index >= 13 && index <= 14) {

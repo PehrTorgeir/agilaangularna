@@ -7,6 +7,7 @@
 .column-data {
     padding: 5px; /* Adjust this value as needed */
     text-align: center;
+    font-size: 20px;
 }
 
 .col tr {
