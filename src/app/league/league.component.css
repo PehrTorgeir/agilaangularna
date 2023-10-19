@@ -1,11 +1,12 @@
 .col table {
     border-collapse: collapse;
-    width: 100%;
+    width: 60%;
 }
 
 .column-header,
 .column-data {
     padding: 5px; /* Adjust this value as needed */
+    text-align: center;
 }
 
 .col tr {

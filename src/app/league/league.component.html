@@ -1,33 +1,7 @@
 <div class="row">
     <div class="col">
-        <div>
-            <h1>{{leagueName}}</h1>
-        </div>
-        <table>
-            <thead>
-                <tr *ngIf="doesLeagueExist">
-                    <th class="column-header">Pos</th>
-                    <th class="column-header">Team</th>
-                    <th class="column-header"></th>
-                    <th class="column-header" *ngFor="let stat of standings[0]?.stats">
-                        {{ stat?.name?.toUpperCase() }}
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let org of standings; let i = index">
-                    <td class="column-data">{{ i + 1 }}</td>
-                    <td class="column-data"><img width="30px" height="30px" src="{{org.team.logo}}"></td>
-                    <td class="column-data">{{ org.team.name }}</td>
-                    <ng-container *ngFor="let stat of org.stats">
-                        <td class="column-data">{{ stat.value }}</td>
-                    </ng-container>
-                </tr>
-            </tbody>
-        </table>
+        <h1>{{leagueName}}</h1>
     </div>
-    
-
     <div class="col">
         <mat-form-field *ngIf="doesLeagueExist">
             <mat-label>Seasons</mat-label>
@@ -38,6 +12,37 @@
             </mat-select>
         </mat-form-field>
     </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <table>
+            <thead>
+                <tr *ngIf="doesLeagueExist">
+                    <th class="column-header">Pos</th>
+                    <th class="column-header">Logo</th>
+                    <th class="column-header">Name</th>
+                    <th class="column-header" *ngFor="let stat of standings[0]?.stats">
+                        {{ stat?.name?.toUpperCase() }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let org of standings; let i = index">
+                    <td class="column-data" [style.background-color]="getColor(i+1)">{{ i + 1 }}</td>
+                    <td class="column-data"><img width="30px" height="30px" src="{{org.team.logo}}"></td>
+                    <td class="column-data">{{ org.team.name }}</td>
+                    <ng-container *ngFor="let stat of org.stats">
+                        <td class="column-data">{{ stat.value }}</td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="colorDescription">
+        {{colorDescription}}
+    </div>
+
 </div>
 
 <div class="row" style="width: 50%;">
