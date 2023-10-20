@@ -28,23 +28,12 @@
     position: fixed;
     padding: 10px;
     margin-left: -10px;
-    
-
 }
-
-
 
 #margin{
     margin-top: 140px;
     margin-left: 20px;
-  
-   
-   
 }
-
-
-
-
 
 @media(max-width:900px) {
     #sidebar {
