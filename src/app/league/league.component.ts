@@ -101,7 +101,7 @@ export class LeagueComponent implements OnInit {
       this.standings = response.groups[0].standings;
     });
 
-    this.eventService.getRecentEvents(seasonId).subscribe((response) => { //Sets the recent events
+    this.eventService.getRecentEvents(10, seasonId).subscribe((response) => { //Sets the recent events
       this.recentEvents = response.events;
     })
 
