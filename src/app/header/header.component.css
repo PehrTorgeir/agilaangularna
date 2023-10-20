@@ -49,13 +49,21 @@
  }
 
  .row {
-    height: 100px;
+     height: 100px;
  }
 
  @media(max-width:1500px) {
      #logo {
 
          transition: font-size 0.3s ease;
+     }
+
+     #sportcolumn {
+
+         font-size: 20px;
+         transition: font-sizw 0.3 ease;
+
+
      }
 
  }
@@ -69,9 +77,18 @@
 
      }
 
+
      #logocolumn {
          padding-top: 20px;
          transition: padding-top 0.5 ease;
+     }
+
+     #sportcolumn {
+
+         font-size: 15  px;
+         transition: font-sizw 0.3 ease;
+
+
      }
  }
 
