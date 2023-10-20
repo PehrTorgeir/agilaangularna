@@ -32,10 +32,6 @@ export class SidebarComponent implements OnInit {
       this.sports = response.sports;
     });
 
-    this.leagueService.getLeagues().subscribe((response) => {
-      this.leagues = response.leagues;
-    });
-
     this.route.params.subscribe(params => {
       let newReceivedData = '';
       if ('sport' in params) {
@@ -52,8 +48,6 @@ export class SidebarComponent implements OnInit {
   }
 
   private getDataBasedOnMessage() {
-    this.leagues = [];
-    this.uniqueLeagueNames = new Set<string>();
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
       this.filterUniqueLeagueNames();
@@ -72,22 +66,13 @@ export class SidebarComponent implements OnInit {
     });
   }
 
-  toggleSubMenu(leagueName: string) {
-    this.selectedItem = this.selectedItem === leagueName ? null : leagueName;
-  }
-  trackByFunction(index: number, item: any): any {
-    return item.someUniqueIdentifier; // Replace with a unique identifier from your data
-  }
-
   transformWord(word: string) {
     return word.toUpperCase();
   }
 
   createLink(checkSport: string) {
     const foundLeague = this.leagues.find(league => league.name.toLowerCase() === checkSport.toLowerCase());
-    if (foundLeague) {
-      
-      
+    if (foundLeague) {  
       return foundLeague.sport.slug;
     }
     return null;

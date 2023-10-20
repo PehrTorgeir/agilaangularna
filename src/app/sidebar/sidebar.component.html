@@ -2,8 +2,7 @@
     <div id="sidebar" class="row">
         <div class="col">
             <div *ngFor="let leagueName of uniqueLeagueNames">
-                <a id="text" [routerLink]="['/', createLink(leagueName), leagueName]"
-                    (click)="toggleSubMenu(leagueName)">{{ transformWord(leagueName) }}</a>
+                <a id="text" [routerLink]="['/', createLink(leagueName), leagueName]">{{ transformWord(leagueName) }}</a>
                 <div *ngIf="selectedItem === leagueName">
                     <ul id="subtext" >
                         <li>Översikt</li>
