@@ -30,6 +30,7 @@
      font-weight: bold;
      text-decoration: none;
      transition: font-size 0.3 ease;
+     font-style: italic;
  }
 
  .active-nav-link {

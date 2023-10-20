@@ -1,17 +1,19 @@
 .col table {
     border-collapse: collapse;
-    width: 60%;
+    width: 66%;
 }
 
 .column-header,
 .column-data {
-    padding: 5px; /* Adjust this value as needed */
+    padding: 5px;
+    /* Adjust this value as needed */
     text-align: center;
     font-size: 20px;
 }
 
 .col tr {
-    border-bottom: 2px solid #ffa200; /* Add a line below each row */
+    border-bottom: 2px solid #ffa200;
+    /* Add a line below each row */
 }
 
 .event-row {
@@ -23,4 +25,24 @@
 
 .row {
     margin-bottom: 50px;
+}
+
+.tableClass {
+    border: solid 2px orange;
+    border-radius: 5px;
+    border-width: 5px;
+    background-color: white;
+
+}
+
+.colorDescriptions {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
 }
