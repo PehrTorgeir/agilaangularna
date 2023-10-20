@@ -30,6 +30,7 @@
      font-weight: bold;
      text-decoration: none;
      transition: font-size 0.3 ease;
+     font-style: italic;
  }
 
  .active-nav-link {
@@ -65,7 +66,7 @@
      }
 
      #logocolumn {
-         padding-top: 40px;
+         padding-top: 20px;
          transition: padding-top 0.5 ease;
      }
  }
