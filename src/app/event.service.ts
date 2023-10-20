@@ -19,8 +19,13 @@ export class EventService {
     return this.http.get(apiUrl);
   }
 
-  getRecentEvents(amount:number, leagueId: bigint): Observable<any> {
+  getRecentEventsForLeague(amount:number, leagueId: bigint): Observable<any> {
     const apiUrl = `${this.baseUrl}/events?fields=all&limit=${amount}&sort=startDate%3Adesc&league=${leagueId}&apikey=${this.apiKey}`;
+    return this.http.get(apiUrl);
+  }
+
+  getRecentEvents(amount:number): Observable<any> {
+    const apiUrl = `${this.baseUrl}/events?fields=all&limit=${amount}&sort=startDate%3Adesc&apikey=${this.apiKey}`;
     return this.http.get(apiUrl);
   }
 

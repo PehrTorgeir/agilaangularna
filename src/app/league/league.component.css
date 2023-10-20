@@ -1,6 +1,7 @@
 .col table {
     border-collapse: collapse;
     width: 66%;
+    
 }
 
 .column-header,
@@ -25,14 +26,6 @@
 
 .row {
     margin-bottom: 50px;
-}
-
-.tableClass {
-    border: solid 2px orange;
-    border-radius: 5px;
-    border-width: 5px;
-    background-color: white;
-
 }
 
 .colorDescriptions {

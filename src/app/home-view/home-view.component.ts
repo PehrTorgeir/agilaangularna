@@ -23,7 +23,7 @@ export class HomeViewComponent implements OnInit {
   }
 
   private importFeaturedEvents() {
-    this.eventService.getRecentEvents(3, this.featuredLeague).subscribe((response) => {
+    this.eventService.getRecentEvents(10).subscribe((response) => {
       this.featuredEvents = response.events;
     });
   }

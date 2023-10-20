@@ -48,6 +48,10 @@
      cursor: pointer;
  }
 
+ .row {
+    height: 100px;
+ }
+
  @media(max-width:1500px) {
      #logo {
 
