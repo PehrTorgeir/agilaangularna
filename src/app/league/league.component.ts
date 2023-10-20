@@ -40,7 +40,7 @@ export class LeagueComponent implements OnInit {
   // bookingLeaders: any[] = [];
   // sentOffLeaders: any[] = [];
 
-  colorDescription: string = '';
+  colorDescriptions: {color : string, description: string } [] = [];
   receivedData: string = '';
   selectedSeason: any;
   leagueName: string = '';
@@ -130,7 +130,11 @@ export class LeagueComponent implements OnInit {
 
   getColor(index: number) {
     if (this.leagueName.toLowerCase() === 'svenska hockeyligan shl') {
-      this.colorDescription = 'Green = Playoff, Yellow = Play-ins, Red = Relegation Series';
+      this.colorDescriptions = [
+        { color: 'Green', description: 'Playoff' },
+        { color: 'Yellow', description: 'Play-ins' },
+        { color: 'Red', description: 'Relegation Series' }
+      ];
       if (index <= 6) {
         return 'green';
       } else if (index >= 7 && index <= 10) {
@@ -139,45 +143,66 @@ export class LeagueComponent implements OnInit {
         return 'red';
       }
     } else if (this.leagueName.toLowerCase() === 'allsvenskan') {
-      this.colorDescription = 'Blue = Champions league Qualifier, Orange = Europa Conference League Qualifier, Yellow = Relegation Qualifier, Red = Relegated'
+      this.colorDescriptions = [
+        { color: 'LightBlue', description: 'Champions league Qualifier' },
+        { color: 'orange', description: 'Europa Conference League Qualifier' },
+        { color: 'yellow', description: 'Relegation Qualifier' },
+        { color: 'red', description: 'Relegated' }
+      ];
       if (index == 1) {
-        return '#0b96e6';
-      } else if (index >= 2 && index <= 3) { 
+        return 'LightBlue';
+      } else if (index >= 2 && index <= 3) {
         return '#cc8006';
-      } else if (index == 14) { 
-        return 'yellow';
-      } else if (index >= 15 && index <= 16) { 
-        return 'red';
-      } 
-    } else if (this.leagueName.toLowerCase() === 'damallsvenskan') {
-      this.colorDescription = 'Blue = Champions League Qualifier, Yellow = Relegation Qualifier, Red = Relegated'
-      if (index >= 1 && index <= 3) {
-        return '#0b96e6';
-      } else if (index == 12) { 
-        return 'yellow';
-      } else if (index >= 13 && index <= 14) { 
-        return 'red';
-      }
-    } else if (this.leagueName.toLowerCase() === 'superettan') {
-      this.colorDescription = 'Blue = Promoted, Orange = Promotion Qualifier, Yellow = Relegation Qualifier, Red = Relegated'
-      if (index >= 1 && index <= 2) {
-        return '#0b96e6';
-      } else if (index == 3) {
-        return '#cc8006';
-      } else if (index >= 13 && index <= 14) {
+      } else if (index == 14) {
         return 'yellow';
       } else if (index >= 15 && index <= 16) {
         return 'red';
       }
-    } else if (this.leagueName.toLowerCase() === 'sdhl') {
-      this.colorDescription = 'Green = Playoffs, Red = Relegation Qualifiers';
+    } else if (this.leagueName.toLowerCase() === 'damallsvenskan') {
+      this.colorDescriptions = [
+        { color: 'LightBlue', description: 'Champions league Qualifier' },
+        { color: 'yellow', description: 'Relegation Qualifier' },
+        { color: 'red', description: 'Relegated' }
+      ];
+      if (index >= 1 && index <= 3) {
+        return 'LightBlue';
+      } else if (index == 12) {
+        return 'yellow';
+      } else if (index >= 13 && index <= 14) {
+        return 'red';
+      }
+    } else if (this.leagueName.toLowerCase() === 'superettan') {
+      this.colorDescriptions = [
+        { color: 'LightBlue', description: 'Promotion' },
+        { color: 'orange', description: 'Promotion Qualifier' },
+        { color: 'yellow', description: 'Relegation Qualifier' },
+        { color: 'red', description: 'Relegated' }
+      ];
+      if (index == 1 || index == 2) {
+        return 'LightBlue';
+      } else if (index == 3) {
+        return '#cc8006';
+      } else if (index > 12 && index < 15) {
+        return 'yellow';
+      } else if (index > 14 && index < 17) {
+        return 'red';
+      }
+    }
+    else if (this.leagueName.toLowerCase() === 'sdhl') {
+      this.colorDescriptions = [
+        { color: 'green', description: 'Playoffs' },
+        { color: 'red', description: 'Relegation Qualifier' }
+      ];
       if (index >= 1 && index <= 8) {
         return 'green';
       } else if (index >= 9) {
         return 'red';
       }
     } else if (this.leagueName.toLowerCase() === 'superligan ssl') {
-      this.colorDescription = 'Green = Playoffs, Red = Relegated'
+      this.colorDescriptions = [
+        { color: 'green', description: 'Playoffs' },
+        { color: 'red', description: 'Relegation Qualifier' }
+      ];
       if (index >= 1 && index <= 8) {
         return 'green';
       } else if (index >= 13 && index <= 14) {
@@ -186,22 +211,6 @@ export class LeagueComponent implements OnInit {
     }
 
     return '';
-
-    //getIceHockeyRowColor(): string {
-    // Add your color logic here for the 'Ishockey' sport
-    // Define your color pattern based on the row index
-    // Example:
-    // if (i >= 0 && i <= 5) {
-    //   return 'green';
-    // } else if (i >= 6 && i <= 9) {
-    //   return 'blue';
-    // } else if (i >= 10 && i <= 11) {
-    //   return 'gray';
-    // } else if (i >= 12 && i <= 13) {
-    //   return 'red';
-    // }
-    //return ''; // Return the appropriate color class based on your color pattern
-    //}
   }
 
 
