@@ -75,6 +75,9 @@ export class SidebarComponent implements OnInit {
   toggleSubMenu(leagueName: string) {
     this.selectedItem = this.selectedItem === leagueName ? null : leagueName;
   }
+  trackByFunction(index: number, item: any): any {
+    return item.someUniqueIdentifier; // Replace with a unique identifier from your data
+  }
 
   transformWord(word: string) {
     return word.toUpperCase();
@@ -83,10 +86,14 @@ export class SidebarComponent implements OnInit {
   createLink(checkSport: string) {
     const foundLeague = this.leagues.find(league => league.name.toLowerCase() === checkSport.toLowerCase());
     if (foundLeague) {
+      
+      
       return foundLeague.sport.slug;
     }
     return null;
   }
-  
+
+
 
 }
+
