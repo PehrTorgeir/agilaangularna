@@ -48,7 +48,7 @@ export class LeagueComponent implements OnInit {
 
   doesLeagueExist: boolean = false;
 
-  constructor(private eventService: EventService, private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private dataService: DataService, private eventService: EventService, private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -80,6 +80,7 @@ export class LeagueComponent implements OnInit {
           this.seasons = response.leagues;
           this.getLeagueStats(this.seasons[0].id);
           this.leagueName = this.seasons[0].name;
+          this.dataService.sendData(this.seasons[0]);
           this.getColor(1);
           if (this.seasons.length > 0) {
             this.seasonControl.setValue(this.seasons[0]);
@@ -92,6 +93,7 @@ export class LeagueComponent implements OnInit {
 
   selectSeason(season: any) {
     this.selectedSeason = season;
+    this.dataService.sendData(season);
     this.getLeagueStats(season.id);
   }
 

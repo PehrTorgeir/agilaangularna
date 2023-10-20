@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LeagueComponent } from '../league/league.component';
 import { HomeViewComponent } from '../home-view/home-view.component';
+import { ScheduleComponent } from '../schedule/schedule.component';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -10,22 +11,28 @@ import { CommonModule } from '@angular/common';
   imports:[
     LeagueComponent,
     HomeViewComponent,
+    ScheduleComponent,
     CommonModule
   ],
   templateUrl: './content.component.html',
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent implements OnInit {
-  homeView:boolean = true;
-
+  selectedView: string = '';
   constructor(private route: ActivatedRoute) {}
 
 
   ngOnInit(): void {
-    this.homeView = true;
     this.route.params.subscribe(params => {
-      if ('sport' in params) {
-        this.homeView = false;
+      
+      if (params['page'] === 'overview') {
+        this.selectedView = 'leaguepage';
+      } else if (params['page'] === 'schedule') {
+        this.selectedView = 'schedulepage'
+      } else if ('sport' in params) {
+        this.selectedView = 'sportpage';
+      } else {
+        this.selectedView = 'homepage';
       }
     });
     
