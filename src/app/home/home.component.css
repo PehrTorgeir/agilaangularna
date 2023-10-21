@@ -19,24 +19,10 @@
     border-radius: 20px;
     
 }
-#sidebar {
-    background-color: white;
-    border: solid 2px orange;
-    border-radius: 5px;
-    border-width: 5px;
-    height: fit-content;
-    width: fit-content;
-    position: fixed;
-    padding: 10px;
-    margin-left: -10px;
-    margin-top: 130px;
-    
-
-}
-
-#margin{
-    margin-top: 140px;
-    margin-left: 20px;
+.sidebar-container {
+    padding-top:50px;
+    margin-top:100px;
+    z-index: 0;
 }
 
 @media(max-width:900px) {
@@ -50,7 +36,7 @@
     #sidebar {
         font-size: 50%;
         transition: font-size 0.3s ease;
-        margin-left: -10px;
+       
 
     }
 }
