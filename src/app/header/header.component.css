@@ -18,8 +18,8 @@
  }
 
  #sportcolumn {
-     display: flex;
-     align-items: center;
+     margin:auto;
+     
      white-space: nowrap;
      font-size: 25px;
      
@@ -42,13 +42,8 @@
 
  .active-nav-link {
      cursor: pointer;
-     border: solid 4px;
+     border-bottom: solid green 4px;
      padding-bottom: 7px;
-     padding-left: 5px;
-     padding-right: 10px;
-     border-radius: 4px;
-     border-color: transparent transparent green transparent;
-
  }
 
  .not-active {
