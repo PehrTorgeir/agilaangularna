@@ -3,6 +3,12 @@
      height: 25px;
 
  }
+ .row {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
 
  #sportbtn {
 
@@ -12,11 +18,11 @@
  }
 
  #sportcolumn {
-     padding-top: 35px;
+     display: flex;
+     align-items: center;
      white-space: nowrap;
      font-size: 25px;
-
-
+     
  }
 
  #logocolumn {
@@ -26,6 +32,7 @@
 
  #logo {
      max-height: max-content;
+     white-space: nowrap;
      font-size: 300%;
      font-weight: bold;
      text-decoration: none;
@@ -49,57 +56,34 @@
  }
 
  .row {
-     height: 100px;
+     height: 92px;
  }
 
- @media(max-width:1500px) {
-     #logo {
-
-         transition: font-size 0.3s ease;
-     }
-
-     #sportcolumn {
-
-         font-size: 20px;
-         transition: font-sizw 0.3 ease;
-
-
-     }
-
- }
 
  @media(max-width:1300px) {
      #logo {
-
          font-size: 200%;
-         transition: font-size 0.3s ease;
-
-
      }
 
-
      #logocolumn {
-         padding-top: 20px;
-         transition: padding-top 0.5 ease;
+         padding-top: 20px;   
      }
 
      #sportcolumn {
-
          font-size: 15  px;
-         transition: font-sizw 0.3 ease;
-
-
      }
  }
 
- @media(max-width:880px) {
+ @media(max-width:778px) {
 
-     #logocolumn {
-         padding-top: 0px;
-         transition: padding-top 0.5 ease;
-     }
+    #logocolumn {
+        padding-top: 0px;
+        transition: padding-top 0.5 ease;
+    }
  }
-
+.row [class*='col-'] {
+    transition: all 0.3s ease;
+}
 
 
 
