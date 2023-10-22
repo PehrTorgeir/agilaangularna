@@ -3,11 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { LeagueComponent } from './league/league.component';
+import { HomeViewComponent } from './home-view/home-view.component';
 
 const routes: Routes = [
   {path: '',
-  component: HomeComponent,
-  title: 'Home page'
+  component: HomeViewComponent,
+  title: 'Home page',
 },
 {
   path: ':sport',
