@@ -22,7 +22,7 @@ const routes: Routes = [
 },
 {
   path: ':sport/:league/:page',
-  component: HomeComponent,
+  component: LeagueComponent,
   title: 'League info'
 }
 ];
