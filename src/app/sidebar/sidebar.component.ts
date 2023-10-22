@@ -3,13 +3,14 @@ import { SportService } from '../sport.service';
 import { LeagueService } from '../league.service';
 import { CommonModule } from '@angular/common';
 
-import { ActivatedRoute, RouterLink, Router, ActivationEnd, NavigationEnd } from '@angular/router';
+import { ActivatedRoute, RouterLink, Router, ActivationEnd } from '@angular/router';
 import { filter, map } from 'rxjs';
 
 @Component({
   selector: 'app-sidebar',
   standalone: true,
-  imports: [CommonModule,
+  imports: [
+    CommonModule,
     RouterLink
   ],
   templateUrl: './sidebar.component.html',
@@ -19,22 +20,15 @@ import { filter, map } from 'rxjs';
 export class SidebarComponent implements OnInit {
   sports: any[] = [];
   leagues: any[] = [];
-  receivedData: string = '';
-  uniqueLeagueNames: Set<string> = new Set<string>();
   filteredLeagueNames: Set<string> = new Set<string>();
-  //uniqueLeagues: { [leagueName: string]: string } = {};
   uniqueLeagues = new Map<string, string>();
-  toggleSidebarContent: boolean = true;
   selectedItem: string | null = null; // Variable to track selected item
   selectedSport: string | null = null;
 
-  constructor(private route: ActivatedRoute, private router: Router, private sportService: SportService, private leagueService: LeagueService) {
-    
-   }
+  constructor(private route: ActivatedRoute, private router: Router, private sportService: SportService, private leagueService: LeagueService) {}
 
   ngOnInit() {
-    console.log('sidebar init');
-    this.getData();
+    this.initializeData();
     this.router.events
       .pipe(
         filter(e => (e instanceof ActivationEnd)),
@@ -45,16 +39,13 @@ export class SidebarComponent implements OnInit {
         //newReceivedData = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
         this.selectedSport = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
         this.updateLeagueFilter();
-        console.log(this.selectedSport);
-      }
-      else {
+      } else {
         this.resetLeagueFilter();
       }
 
       if ('league' in params) {
         this.selectedItem = params['league'];
-      }
-      else {
+      } else {
         this.selectedItem = null;
       }
       });
@@ -62,10 +53,9 @@ export class SidebarComponent implements OnInit {
     this.sportService.getSports().subscribe((response) => {
       this.sports = response.sports;
     });
-    console.log(this.filteredLeagueNames);
   }
 
-  private getData() {
+  private initializeData() {
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
       this.filterUniqueLeagueNames();
@@ -77,25 +67,10 @@ export class SidebarComponent implements OnInit {
     this.leagues.forEach((league) => {
       if (!(league.name in this.uniqueLeagues.keys())) {
         this.uniqueLeagues.set(league.name, league.sport.name);
-        //this.uniqueLeagueNames.add(league.name.toLowerCase());
-        /*
-        if (this.receivedData === "") {
-          this.uniqueLeagueNames.add(league.name.toLowerCase());
-        } else if (league.sport.name === this.receivedData) {
-          this.uniqueLeagueNames.add(league.name.toLowerCase());
-        }
-        */
       }
-
     });
-    //console.log(this.uniqueLeagues.values());
   }
-  resetLeagueFilter() {
-    console.log(this.uniqueLeagues);
-    this.filteredLeagueNames.clear();
-    this.selectedItem = null;
-    for (let league of this.uniqueLeagues.keys()) {this.filteredLeagueNames.add(league)};
-  }
+  
   updateLeagueFilter() {
     if (this.selectedSport === null) {
       this.resetLeagueFilter();
@@ -109,6 +84,12 @@ export class SidebarComponent implements OnInit {
       }
     }
   }
+  resetLeagueFilter() {
+    this.filteredLeagueNames.clear();
+    this.selectedItem = null;
+    for (let league of this.uniqueLeagues.keys()) {this.filteredLeagueNames.add(league)};
+  }
+  
 
   transformWord(word: string) {
     return word.toUpperCase();
@@ -121,8 +102,5 @@ export class SidebarComponent implements OnInit {
     }
     return null;
   }
-
-
-
 }
 

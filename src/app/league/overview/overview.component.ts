@@ -1,19 +1,18 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { LeagueService } from '../league.service';
-import { EventService } from '../event.service';
+import { DataService } from '../../data.service';
+import { LeagueService } from '../../league.service';
+import { EventService } from '../../event.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-import { HeaderComponent } from '../header/header.component';
-import { ContentComponent } from '../content/content.component';
+import { SidebarComponent } from '../../sidebar/sidebar.component';
+import { HeaderComponent } from '../../header/header.component';
 
 @Component({
-  selector: 'app-league',
+  selector: 'app-overview',
   standalone: true,
   imports: [
     RouterLink,
@@ -22,13 +21,12 @@ import { ContentComponent } from '../content/content.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     SidebarComponent,
-    HeaderComponent,
-    ContentComponent
+    HeaderComponent
   ],
-  templateUrl: './league.component.html',
-  styleUrls: ['./league.component.css']
+  templateUrl: './overview.component.html',
+  styleUrls: ['./overview.component.css']
 })
-export class LeagueComponent implements OnInit {
+export class OverviewComponent implements OnInit {
   seasons: any[] = [];
   leagues: any[] = [];
 
