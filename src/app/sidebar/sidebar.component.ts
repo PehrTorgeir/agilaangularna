@@ -69,7 +69,7 @@ export class SidebarComponent implements OnInit {
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
       this.filterUniqueLeagueNames();
-      this.resetLeagueFilter();
+      this.updateLeagueFilter();
     });
   }
 
@@ -97,10 +97,15 @@ export class SidebarComponent implements OnInit {
     for (let league of this.uniqueLeagues.keys()) {this.filteredLeagueNames.add(league)};
   }
   updateLeagueFilter() {
-    this.filteredLeagueNames.clear();
-    for (let [key, value] of this.uniqueLeagues) {
-      if (value === this.selectedSport) {
-        this.filteredLeagueNames.add(key);
+    if (this.selectedSport === null) {
+      this.resetLeagueFilter();
+    }
+    else {
+      this.filteredLeagueNames.clear();
+      for (let [key, value] of this.uniqueLeagues) {
+        if (value === this.selectedSport) {
+          this.filteredLeagueNames.add(key);
+        }
       }
     }
   }
