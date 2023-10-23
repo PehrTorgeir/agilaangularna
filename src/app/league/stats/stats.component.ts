@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { LeagueService } from '../league.service';
-import { EventService } from '../event.service';
+import { DataService } from 'src/app/data.service';
+import { LeagueService } from 'src/app/league.service';
+import { EventService } from 'src/app/event.service';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { SidebarComponent } from '../sidebar/sidebar.component';
-import { HeaderComponent } from '../header/header.component';
-import { ContentComponent } from '../content/content.component';
+import { SidebarComponent } from 'src/app/sidebar/sidebar.component';
+import { HeaderComponent } from 'src/app/header/header.component';
 
 @Component({
   standalone: true,
@@ -21,8 +20,7 @@ import { ContentComponent } from '../content/content.component';
     MatFormFieldModule,
     ReactiveFormsModule,
     SidebarComponent,
-    HeaderComponent,
-    ContentComponent],
+    HeaderComponent],
   templateUrl: './stats.component.html',
   styleUrls: ['./stats.component.css']
 })
