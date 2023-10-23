@@ -2,17 +2,16 @@
     <div class="sidebar" [class.open]="isSidebarOpen">
         <div class="col">
             <div *ngFor="let leagueName of filteredLeagueNames; let i = index">
-                <a id="text" [routerLink]="['/', createLink(leagueName), leagueName]" > {{ transformWord(leagueName) }}</a>
+                <a id="text" [routerLink]="['/', createLink(leagueName), leagueName]"> {{ transformWord(leagueName)
+                    }}</a>
                 <div #collapse="ngbCollapse" [ngbCollapse]="selectedItem !== leagueName">
                     <ul id="subtext">
-                        <li>Översikt</li>
-                        <li>Tabell</li>
-                        <li>Spelschema</li>
-                        <li>Spelarstatistik</li>
+                        <li><a [routerLink]="['/',createLink(leagueName),leagueName,'overview']">Översikt</a> </li>
+                        <li><a [routerLink]="['/',createLink(leagueName),leagueName,'schedule']">Spelschema</a></li>
+                        <li><a [routerLink]="['/',createLink(leagueName),leagueName,'stats']">Spelarstatistik</a></li>
                     </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
-

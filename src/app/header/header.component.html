@@ -1,25 +1,25 @@
-<header class="backgoundCol">
-  <div class="row">
+<header class="backgoundCol" style="height: 100%;">
+  <div class="row ">
     
-    <div id="logocolumn" class="col-md-3 col-12">
-      <button (click)="openSidebar()">>></button> <!-- Changed the text to Toggle -->
+    <div class="col-md-4 col-12  logocolumn" style="white-space: nowrap;">
+      <button (click)="openSidebar()">>></button> 
       <a id="logo" class="col-3 " [routerLink]="['/']" (click)="setActiveClass(0)" >
         Sporty Sport
       </a>
     </div>
-    <div  id="sportcolumn" class="col-md-3 col-4">
+    <div  id="sportcolumn" class="col-md-2 col-4">
       <a id="sportbtn"class="col" [routerLink]="['/fotboll']" routerLinkActive="active-nav-link"
         [routerLinkActiveOptions]="{exact: false}">
         <img src="/assets/fotboll.png" class="logosport"><b class="textcolor">Fotboll</b>
       </a>
     </div>
-    <div  id="sportcolumn"class="col-md-3 col-4">
+    <div  id="sportcolumn"class="col-md-2 col-4">
       <a id="sportbtn" class="col hover" [routerLink]="['/ishockey']" routerLinkActive="active-nav-link"
         [routerLinkActiveOptions]="{exact: false}">
         <img src="/assets/ishockey.png" class="logosport"><b class="textcolor">Ishockey</b>
       </a>
     </div>
-    <div  id="sportcolumn"class="col-md-3 col-4">
+    <div  id="sportcolumn"class="col-md-2 col-4">
       <a id="sportbtn" class="col hover" [routerLink]="['/innebandy']" routerLinkActive="active-nav-link"
         [routerLinkActiveOptions]="{exact: false}">
         <img src="/assets/innebandy.png" class="logosport"><b class="textcolor">Innebandy</b>
@@ -27,41 +27,3 @@
     </div>
   </div>
 </header>
-
-
-
-
-<!-- <body>
-  <div id="header" class="row nav-menu" style="text-align: center;">
-    <div  class="row  px-0">
-
-
-    
-    <div class="row rowheight">
-
-     
-      <a id="logo" class="col-3 hover" [routerLink]="['/']" (click)="setActiveClass(0)" routerLinkActive="active-nav-link"
-        [routerLinkActiveOptions]="{exact: true}">
-        <img src="/assets/home.png" class="logosport"><b  class="textcolor">Sporty Sport</b>
-
-      </a>
-
-      <a class="col hover" [routerLink]="['/fotboll']" routerLinkActive="active-nav-link"
-        [routerLinkActiveOptions]="{exact: false}">
-        <img src="/assets/fotboll.png" class="logosport"><b class="textcolor">Fotboll</b>
-
-      </a>
-      <a class="col hover" [routerLink]="['/ishockey']" routerLinkActive="active-nav-link"
-        [routerLinkActiveOptions]="{exact: false}">
-        <img src="/assets/ishockey.png" class="logosport"><b class="textcolor">Ishockey</b>
-
-      </a>
-      <a class="col hover" [routerLink]="['/innebandy']" routerLinkActive="active-nav-link"
-        [routerLinkActiveOptions]="{exact: false}">
-        <img src="/assets/innebandy.png" class="logosport"><b class="textcolor">Innebandy</b>
-
-      </a>
-    </div>
-  </div>
-  </div>
-</body> -->
