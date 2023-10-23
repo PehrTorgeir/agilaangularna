@@ -11,11 +11,11 @@
 }
 
 tr {
-    border-bottom: 2px solid #ffa200; /* Add a line below each row */
+    border-bottom: 2px solid #F9B572; /* Add a line below each row */
 }
 
 .event-row {
-    border-bottom: 2px solid #ffa200;
+    border-bottom: 2px solid #F9B572;
     padding: 5px;
     width: 49%;
     height: 10%;

@@ -19,13 +19,23 @@
     border-radius: 20px;
     
 }
+
 .sidebar-container {
     padding-top:50px;
     margin-top:100px;
     z-index: 0;
 }
+#content-container {
+    padding-top: 120px;
+}
 
-@media(max-width:900px) {
+@media(max-width:768px) {
+    .sidebar-container {
+        padding-top: 5px;
+        padding-bottom: 20px;
+    }
+}
+@media(max-width:900px) { 
     #sidebar {
         font-size: 70%;
         transition: font-size 0.3s ease;
@@ -36,7 +46,6 @@
     #sidebar {
         font-size: 50%;
         transition: font-size 0.3s ease;
-       
 
     }
 }

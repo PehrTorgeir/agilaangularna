@@ -36,7 +36,7 @@
      font-size: 300%;
      font-weight: bold;
      text-decoration: none;
-     transition: font-size 0.3 ease;
+     transition: all 0.5s ease;
      font-style: italic;
  }
 
@@ -76,9 +76,6 @@
         transition: padding-top 0.5 ease;
     }
  }
-.row [class*='col-'] {
-    transition: all 0.3s ease;
-}
 
 
 

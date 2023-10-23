@@ -1,4 +1,4 @@
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { OverviewComponent } from './league/overview/overview.component';
 import { ScheduleComponent } from './league/schedule/schedule.component';
@@ -14,6 +14,8 @@ const routes: Routes = [
   component: HomeComponent,
   title: 'Sport info'
 },
+
+// ----- League routing -----
 {
   path: ':sport/:league',
   redirectTo: ':sport/:league/overview',

@@ -3,7 +3,7 @@ import { DataService } from '../../data.service';
 import { LeagueService } from '../../league.service';
 import { EventService } from '../../event.service';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute, Router, NavigationEnd, RouterLink, RouterOutlet } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
