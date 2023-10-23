@@ -1,4 +1,38 @@
-#text {
+.sidebar {
+    width: 0px;
+    position: fixed;
+    top: 110;
+    left: 0;
+    height: 100vh;
+    background-color: gray;
+    overflow: hidden; 
+    transition: width 0.3s ease; 
+  }
+  
+  .sidebar.open {
+    width: 250px;
+    overflow: visible; 
+  }
+  
+  .main-content {
+  
+    margin-left: 0;
+  }
+  
+  .main-content.with-sidebar {
+    margin-left: 0px;
+  }
+  
+  .content {
+    margin-left: 250px;
+  
+  }
+  
+  .pos {
+    margin-top: 110px;
+  }
+
+/*#text {
     text-decoration: none;
     font-size: 20px;
     color: black;
@@ -53,3 +87,4 @@
         transition: font-size 0.3s ease;
     }
 }
+*/

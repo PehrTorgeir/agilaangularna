@@ -3,6 +3,9 @@
      height: 25px;
 
  }
+ header {
+    border-bottom: solid 8px orange;
+ }
  .row {
     padding-left: 5px;
     padding-right: 5px;

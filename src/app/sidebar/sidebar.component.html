@@ -1,5 +1,5 @@
-<div >
-    <nav id="sidebar" class="navbar-nav">
+<div>
+    <div class="sidebar" [class.open]="isSidebarOpen">
         <div class="col">
             <div *ngFor="let leagueName of filteredLeagueNames; let i = index">
                 <a id="text" [routerLink]="['/', createLink(leagueName), leagueName]" > {{ transformWord(leagueName) }}</a>
@@ -13,5 +13,6 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </div>
 </div>
+

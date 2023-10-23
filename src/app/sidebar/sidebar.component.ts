@@ -4,7 +4,9 @@ import { LeagueService } from '../league.service';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, RouterLink, Router, ActivationEnd } from '@angular/router';
-import { filter, map } from 'rxjs';
+import { Subscription, filter, map } from 'rxjs';
+import { Output, EventEmitter } from '@angular/core';
+import { SidebarService } from '../sidebar.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -19,14 +21,17 @@ import { filter, map } from 'rxjs';
 
 })
 export class SidebarComponent implements OnInit {
+  public isSidebarOpen = true;
+  toggleSidebarContent: boolean = false;
+  private subs: Subscription[] = [];
   sports: any[] = [];
   leagues: any[] = [];
   filteredLeagueNames: Set<string> = new Set<string>();
   uniqueLeagues = new Map<string, string>();
   selectedItem: string | null = null; // Variable to track selected item
   selectedSport: string | null = null;
-
-  constructor(private route: ActivatedRoute, private router: Router, private sportService: SportService, private leagueService: LeagueService) {}
+  @Output() sidebarToggled = new EventEmitter<boolean>();
+  constructor(private route: ActivatedRoute, private router: Router, private sportService: SportService, private leagueService: LeagueService, private sidebarService: SidebarService) {}
 
   ngOnInit() {
     this.initializeData();
@@ -50,12 +55,18 @@ export class SidebarComponent implements OnInit {
         this.selectedItem = null;
       }
       });
-
+    
     this.sportService.getSports().subscribe((response) => {
       this.sports = response.sports;
     });
+    this.subscribeToSidebarService();
   }
-
+  private subscribeToSidebarService() {
+    this.subs.push(this.sidebarService.sidebarOpen$.subscribe(isOpen => {
+      this.isSidebarOpen = isOpen;
+      this.sidebarToggled.emit(isOpen);
+    }));
+  }
   private initializeData() {
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
@@ -102,6 +113,10 @@ export class SidebarComponent implements OnInit {
       return foundLeague.sport.slug;
     }
     return null;
+    
+  }
+  toggleSidebar() {
+    this.isSidebarOpen = !this.isSidebarOpen;
   }
 }
 

@@ -3,7 +3,7 @@ import { HomeComponent } from './home/home.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
-
+import { SidebarService } from './sidebar.service';
 
 
 @Component({
@@ -20,6 +20,11 @@ import { HeaderComponent } from './header/header.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
+  isSidebarOpen = true;
+
+  onSidebarToggled(opened: boolean) {
+    console.log(opened);
+    this.isSidebarOpen = opened;
+  }
 }
 

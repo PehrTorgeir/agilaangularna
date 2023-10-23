@@ -5,7 +5,7 @@
     height: 100px;
     z-index: 100;
 }
-
+/*
 .header::after {
     content: '';
     position: absolute;
@@ -19,6 +19,7 @@
     border-radius: 20px;
     
 }
+*/
 
 .sidebar-container {
     padding-top:50px;
@@ -28,6 +29,9 @@
 #content-container {
     padding-top: 120px;
 }
+.main-content.with-sidebar {
+    margin-left: 250px !important;
+  }
 
 @media(max-width:768px) {
     .sidebar-container {
