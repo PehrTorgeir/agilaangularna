@@ -1,28 +1,40 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { LeagueComponent } from './league/league.component';
+import { OverviewComponent } from './league/overview/overview.component';
+import { ScheduleComponent } from './league/schedule/schedule.component';
+import { StatsComponent } from './league/stats/stats.component';
 
 const routes: Routes = [
   {path: '',
   component: HomeComponent,
-  title: 'Home page'
+  title: 'Home page',
 },
 {
-  path: ':sport',
+  path: ':sport',         // TODO: Vi borde ha något när länken endast är en sport och ingen league
   component: HomeComponent,
   title: 'Sport info'
 },
+
+// ----- League routing -----
 {
   path: ':sport/:league',
   redirectTo: ':sport/:league/overview',
   pathMatch: 'full',
 },
 {
-  path: ':sport/:league/:page',
-  component: HomeComponent,
-  title: 'League info'
+  path: ':sport/:league/overview',
+  component: OverviewComponent,
+  title: 'League overview'
+},
+{
+  path: ':sport/:league/schedule',
+  component: ScheduleComponent,
+  title: 'League schedule'
+},
+{
+  path: ':sport/:league/stats',
+  component: StatsComponent,
+  title: 'League stats'
 }
 ];
 

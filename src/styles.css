@@ -18,7 +18,7 @@ body {
 }
 
 .tableClass {
-  border: solid 2px orange;
+  border: solid 2px #F9B572;
   border-radius: 5px;
   border-width: 5px;
   background-color: white;
