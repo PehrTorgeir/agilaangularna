@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { LeagueComponent } from '../league/league.component';
 import { HomeViewComponent } from '../home-view/home-view.component';
 import { ScheduleComponent } from '../schedule/schedule.component';
+import { StatsComponent } from '../stats/stats.component';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -12,6 +13,7 @@ import { CommonModule } from '@angular/common';
     LeagueComponent,
     HomeViewComponent,
     ScheduleComponent,
+    StatsComponent,
     CommonModule
   ],
   templateUrl: './content.component.html',
@@ -29,6 +31,8 @@ export class ContentComponent implements OnInit {
         this.selectedView = 'leaguepage';
       } else if (params['page'] === 'schedule') {
         this.selectedView = 'schedulepage'
+      } else if (params['page'] === 'stats') {
+        this.selectedView = 'statspage'
       } else if ('sport' in params) {
         this.selectedView = 'sportpage';
       } else {

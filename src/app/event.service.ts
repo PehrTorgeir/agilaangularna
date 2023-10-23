@@ -29,4 +29,9 @@ export class EventService {
     return this.http.get(apiUrl);
   }
 
+  getAllEventsForLeague(leagueId:bigint) : Observable<any> {
+    const apiUrl = `${this.baseUrl}/events?sort=round%3Aasc&league=${leagueId}&apikey=${this.apiKey}&limit=500`;
+    return this.http.get(apiUrl);
+  }
+
 }

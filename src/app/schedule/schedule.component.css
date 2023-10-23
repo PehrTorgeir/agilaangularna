@@ -8,10 +8,14 @@
 
 .col table {
     border-collapse: collapse;
-    width: 66%;
+    width: 120%;
     
 }
 
+button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
 
 .col tr {
     border-bottom: 2px solid #ffa200;

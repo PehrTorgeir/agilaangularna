@@ -8,6 +8,7 @@ import { FormControl } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
 import { SidebarComponent } from '../sidebar/sidebar.component';
 import { HeaderComponent } from '../header/header.component';
 import { ContentComponent } from '../content/content.component';
@@ -22,20 +23,25 @@ import { ContentComponent } from '../content/content.component';
     ReactiveFormsModule,
     SidebarComponent,
     HeaderComponent,
-    ContentComponent],
+    ContentComponent,
+    MatIconModule],
   templateUrl: './schedule.component.html',
   styleUrls: ['./schedule.component.css']
 })
-export class ScheduleComponent {
+export class ScheduleComponent implements OnInit{
   seasons: any[] = [];
   leagues: any[] = [];
 
-  recentEvents: any[] = [];
+  allEvents: any[] = [];
+  rounds: any[] = [];
+  selectedRound: any;
+  roundEvents: any[] = [];
 
   receivedData: string = '';
   selectedSeason: any;
   leagueName: string = '';
   seasonControl = new FormControl();
+  roundsControl = new FormControl();
 
   doesLeagueExist: boolean = false;
 
@@ -58,7 +64,6 @@ export class ScheduleComponent {
     this.seasons = [];
     this.leagueService.getLeagues().subscribe((response) => {
       this.leagues = response.leagues;
-
       this.getSeasonsBasedOnLeague();
     });
   }
@@ -80,14 +85,57 @@ export class ScheduleComponent {
     }
   }
 
+  private getRoundsFromSeason() {
+    this.allEvents.forEach(element => {
+      if (!this.rounds.includes(element.round)) {
+        this.rounds.push(element.round);
+      }
+    });
+  }
+
+  selectRound(round: any) {
+    this.selectedRound = round;
+    this.roundEvents = [];
+    this.allEvents.forEach(element => {
+      if (element.round == round) {
+        this.roundEvents.push(element);
+      }
+    });
+  }
+
+  selectNext() {
+    const currentValue = this.roundsControl.value;
+    const currentIndex = this.rounds.findIndex(round => round === currentValue);
+    if (currentIndex < this.rounds.length - 1) {
+        this.roundsControl.setValue(this.rounds[currentIndex + 1]);
+        this.selectRound(this.rounds[currentIndex + 1]);
+        console.log(this.rounds[currentIndex + 1]);
+    }
+  }
+
+  selectPrevious() {
+    const currentValue = this.roundsControl.value;
+    const currentIndex = this.rounds.findIndex(round => round === currentValue);
+    if (currentIndex > 0) {
+        this.roundsControl.setValue(this.rounds[currentIndex - 1]);
+        this.selectRound(this.rounds[currentIndex - 1]);
+        console.log(this.rounds[currentIndex - 1]);
+    }
+  }
+
   selectSeason(season: any) {
     this.selectedSeason = season;
     this.getLeagueStats(season.id);
   }
 
   private getLeagueStats(seasonId: bigint) {
-    this.eventService.getRecentEventsForLeague(10, seasonId).subscribe((response) => { //Sets the recent events
-      this.recentEvents = response.events;
-    })
+    this.eventService.getAllEventsForLeague(seasonId).subscribe((response) => {
+      this.allEvents = response.events;
+      this.getRoundsFromSeason();
+      if (this.rounds.length > 0) {
+        this.roundsControl.setValue(this.rounds[this.rounds.length-1]);
+        this.selectRound(this.rounds[this.rounds.length-1]);
+      }
+    });
   }
 }
