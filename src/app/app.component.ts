@@ -23,7 +23,7 @@ export class AppComponent {
   isSidebarOpen = true;
 
   onSidebarToggled(opened: boolean) {
-    console.log(opened);
+  
     this.isSidebarOpen = opened;
   }
 }

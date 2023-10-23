@@ -35,7 +35,7 @@ export class HeaderComponent {
     this.activeColumnIndex = index;
   }
   openSidebar() {
-    console.log("Toggling sidebar from header component");
+ 
     this.sidebarService.toggleSidebar();
 }
   title = 'agilaangularna';

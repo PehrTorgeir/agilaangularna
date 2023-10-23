@@ -31,7 +31,7 @@ export class SidebarComponent implements OnInit {
   selectedItem: string | null = null; // Variable to track selected item
   selectedSport: string | null = null;
   @Output() sidebarToggled = new EventEmitter<boolean>();
-  constructor(private route: ActivatedRoute, private router: Router, private sportService: SportService, private leagueService: LeagueService, private sidebarService: SidebarService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private sportService: SportService, private leagueService: LeagueService, private sidebarService: SidebarService) { }
 
   ngOnInit() {
     this.initializeData();
@@ -41,21 +41,21 @@ export class SidebarComponent implements OnInit {
         map(e => e instanceof ActivationEnd ? e.snapshot.params : {})
       )
       .subscribe(params => {
-      if ('sport' in params) {
-        //newReceivedData = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
-        this.selectedSport = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
-        this.updateLeagueFilter();
-      } else {
-        this.resetLeagueFilter();
-      }
+        if ('sport' in params) {
+          //newReceivedData = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
+          this.selectedSport = params['sport'].charAt(0).toUpperCase() + params['sport'].slice(1);
+          this.updateLeagueFilter();
+        } else {
+          this.resetLeagueFilter();
+        }
 
-      if ('league' in params) {
-        this.selectedItem = params['league'];
-      } else {
-        this.selectedItem = null;
-      }
+        if ('league' in params) {
+          this.selectedItem = params['league'];
+        } else {
+          this.selectedItem = null;
+        }
       });
-    
+
     this.sportService.getSports().subscribe((response) => {
       this.sports = response.sports;
     });
@@ -82,7 +82,7 @@ export class SidebarComponent implements OnInit {
       }
     });
   }
-  
+
   updateLeagueFilter() {
     if (this.selectedSport === null) {
       this.resetLeagueFilter();
@@ -99,9 +99,9 @@ export class SidebarComponent implements OnInit {
   resetLeagueFilter() {
     this.filteredLeagueNames.clear();
     this.selectedItem = null;
-    for (let league of this.uniqueLeagues.keys()) {this.filteredLeagueNames.add(league)};
+    for (let league of this.uniqueLeagues.keys()) { this.filteredLeagueNames.add(league) };
   }
-  
+
 
   transformWord(word: string) {
     return word.toUpperCase();
@@ -109,11 +109,12 @@ export class SidebarComponent implements OnInit {
 
   createLink(checkSport: string) {
     const foundLeague = this.leagues.find(league => league.name.toLowerCase() === checkSport.toLowerCase());
-    if (foundLeague) {  
+    if (foundLeague) {
+      
       return foundLeague.sport.slug;
     }
     return null;
-    
+
   }
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
