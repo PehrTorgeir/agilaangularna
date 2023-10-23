@@ -7,6 +7,7 @@ import { ActivatedRoute, RouterLink, Router, ActivationEnd } from '@angular/rout
 import { Subscription, filter, map } from 'rxjs';
 import { Output, EventEmitter } from '@angular/core';
 import { SidebarService } from '../sidebar.service';
+import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-sidebar',
@@ -31,7 +32,19 @@ export class SidebarComponent implements OnInit {
   selectedItem: string | null = null; // Variable to track selected item
   selectedSport: string | null = null;
   @Output() sidebarToggled = new EventEmitter<boolean>();
-  constructor(private route: ActivatedRoute, private router: Router, private sportService: SportService, private leagueService: LeagueService, private sidebarService: SidebarService) {}
+  constructor(private route: ActivatedRoute, private router: Router, private sportService: SportService, private leagueService: LeagueService, private sidebarService: SidebarService, private breakpointObserver: BreakpointObserver) {
+    const layoutChanges = breakpointObserver.observe("(max-width: 768px)");
+
+    layoutChanges.subscribe(result => {
+      if ((this.isSidebarOpen === true)&&(breakpointObserver.isMatched("(max-width: 768px)"))) {
+        this.sidebarService.toggleSidebar();
+      }
+      else if ((this.isSidebarOpen === false)&&(!breakpointObserver.isMatched("(max-width: 768px)"))) {
+        this.sidebarService.toggleSidebar();
+      }
+    });
+
+  }
 
   ngOnInit() {
     this.initializeData();

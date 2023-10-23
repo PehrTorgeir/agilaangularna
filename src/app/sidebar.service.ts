@@ -14,7 +14,6 @@ export class SidebarService {
   selectedLeague$ = this._selectedLeague.asObservable();
 
   toggleSidebar() {
-    console.log("Toggling sidebar from sidebarService")
     this._sidebarOpen.next(!this._sidebarOpen.value);
   }
 
