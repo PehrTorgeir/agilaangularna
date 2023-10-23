@@ -1,2 +1,45 @@
+section {
+    padding-top: 5%;
+    padding-left: 2%;
+    padding-right: 2%;
+    min-height: 100vh;
+    display: flex;
+    align-items: start;
+    background: white;
+    font-size: 100px;
+    border: orange solid 5px;
+   
+}
+
+.surrounding{
+    border: solid black 2px;
+    border-radius: 30px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+    flex-basis: 45%;
+
+}
+
+
+.column-data {
+    border: green solid 5px;
+    padding: 5px; 
+    text-align: center;
+    font-size: 15px;
+    
+    
+}
+.event-grid {
+    border: red solid 5px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.header{
+    border: purple solid 5px;
+}
+
+
+
 
 

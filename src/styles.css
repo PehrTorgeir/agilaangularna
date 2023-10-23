@@ -1,4 +1,12 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+body{
+  margin: 0px;
+  padding: 0px;
+}
+
+
+
+
+/* @import '@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 
 body,
@@ -26,4 +34,4 @@ html {
   background-color: white;
 
 }
-
+ */

@@ -1,8 +1,11 @@
 import { Component } from '@angular/core';
 import { HomeComponent } from './home/home.component';
 import { RouterLink, RouterOutlet } from '@angular/router';
+import { HeaderComponent } from './header/header.component';
 
-
+import { ContentComponent } from './content/content.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +13,15 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   imports: [
     HomeComponent,
     RouterLink,
-    RouterOutlet,
-   
+    RouterOutlet, HeaderComponent, ContentComponent, SidebarComponent,CommonModule
+
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
-  
+
+ 
+
 }
 

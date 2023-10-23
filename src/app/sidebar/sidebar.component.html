@@ -1,17 +1,25 @@
-<div>
-    <div id="sidebar" class="row">
-        <div class="col">
-            <div *ngFor="let leagueName of uniqueLeagueNames">
-                <a id="text" [routerLink]="['/', createLink(leagueName), leagueName]">{{ transformWord(leagueName) }}</a>
-                <div *ngIf="selectedItem === leagueName">
-                    <ul id="subtext" >
-                        <li>Översikt</li>
-                        <li>Tabell</li>
-                        <li>Spelschema</li>
-                        <li>Spelarstatistik</li>
-                    </ul>
+<div class="sidebar" [class.open]="isSidebarOpen">
+    <div class="pos">
+        <ul>
+            <li>
+                <a [routerLink]="['/']">Home</a>
+            </li>
+            <li *ngFor="let sport of sports" (click)="setSelectedItem(sport.name)">
+                <a [routerLink]="['/' + sport.name]">{{ sport.name.toLowerCase() }}</a>
+                <div *ngIf="selectedItem === transformWord(sport.name)">
+                    <div *ngFor="let leagueName of uniqueLeagueNames" (click)="toggleLeagueSubMenu(leagueName)">
+                        <a [routerLink]="['/', createLink(leagueName), leagueName]">{{ transformWord(leagueName) }}</a>
+                        <div *ngIf="selectedLeague === leagueName">
+                            <ul id="subtext">
+                                <li [routerLink]="['/', createLink(leagueName), leagueName, 'overview']">Översikt</li>
+                                <li [routerLink]="['/', createLink(leagueName), leagueName, 'table']">Tabell</li>
+                                <li [routerLink]="['/', createLink(leagueName), leagueName, 'schedule']">Spelschema</li>
+                                <li [routerLink]="['/', createLink(leagueName), leagueName, 'player-stats']">Spelarstatistik</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </div>
+            </li>
+        </ul>
     </div>
 </div>

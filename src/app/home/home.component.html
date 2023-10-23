@@ -1,22 +1,6 @@
-<div class="container-fluid">
+<app-header></app-header>
 
-
-    <div class="row">
-        <div class="col">
-            <app-header class="header"></app-header>
-        </div>
-
-    </div>
-
-
-    <div id="margin" class="row">
-        <div class="col-3">
-            <app-sidebar id="sidebar"></app-sidebar>
-        </div>
-        <div class="col-9">
-            <app-content id="content"></app-content>
-        </div>
-
-    </div>
-
+<app-sidebar (sidebarToggled)="onSidebarToggled($event)"></app-sidebar>
+<div [class.with-sidebar]="isSidebarOpen" class="main-content">
+    <app-content ></app-content>
 </div>

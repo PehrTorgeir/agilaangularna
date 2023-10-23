@@ -1,5 +1,9 @@
-<div>
-    <app-home-view *ngIf="selectedView == 'homepage'"></app-home-view>
-    <app-league *ngIf="selectedView == 'leaguepage'"></app-league>
-    <app-schedule *ngIf="selectedView == 'schedulepage'"></app-schedule>
-</div>
+<section id="Home" class="section">
+
+    <div>
+        <app-home-view *ngIf="selectedView == 'homepage'"></app-home-view>
+        <app-league *ngIf="selectedView == 'leaguepage'"></app-league>
+        <app-schedule *ngIf="selectedView == 'schedulepage'"></app-schedule>
+    </div>
+
+</section>

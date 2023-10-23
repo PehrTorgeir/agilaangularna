@@ -3,6 +3,7 @@ import { HomeComponent } from '../home/home.component';
 import { RouterLink, RouterOutlet, RouterModule } from '@angular/router';
 import { DataService } from '../data.service';
 import { NgClass } from '@angular/common';
+import { SidebarService } from '../sidebar.service';
 
 
 @Component({
@@ -22,9 +23,17 @@ import { NgClass } from '@angular/common';
 export class HeaderComponent {
   activeColumnIndex: number | undefined;
   statusClass = 'hover-not-active';
-  sidebarview: boolean = false;
+  sidebarview: boolean = true;
 
-  constructor(private dataService: DataService) { }
+
+
+
+
+  constructor(private dataService: DataService, private sidebarService: SidebarService) { }
+
+  openSidebar() {
+    this.sidebarService.toggleSidebar();
+}
 
   sendData(message: boolean) {
     this.dataService.sendData(message);
@@ -33,6 +42,6 @@ export class HeaderComponent {
   setActiveClass(index: number): void {
     this.activeColumnIndex = index;
   }
-  
+
   title = 'agilaangularna';
 }
