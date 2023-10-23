@@ -1,9 +1,9 @@
 <div >
     <nav id="sidebar" class="navbar-nav">
         <div class="col">
-            <div *ngFor="let leagueName of filteredLeagueNames">
-                <a id="text" [routerLink]="['/', createLink(leagueName), leagueName]">{{ transformWord(leagueName) }}</a>
-                <div *ngIf="selectedItem === leagueName">
+            <div *ngFor="let leagueName of filteredLeagueNames; let i = index">
+                <a id="text" [routerLink]="['/', createLink(leagueName), leagueName]" > {{ transformWord(leagueName) }}</a>
+                <div #collapse="ngbCollapse" [ngbCollapse]="selectedItem !== leagueName">
                     <ul id="subtext">
                         <li>Översikt</li>
                         <li>Tabell</li>

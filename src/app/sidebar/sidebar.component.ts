@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SportService } from '../sport.service';
 import { LeagueService } from '../league.service';
 import { CommonModule } from '@angular/common';
-
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, RouterLink, Router, ActivationEnd } from '@angular/router';
 import { filter, map } from 'rxjs';
 
@@ -11,7 +11,8 @@ import { filter, map } from 'rxjs';
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink
+    RouterLink,
+    NgbModule
   ],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
