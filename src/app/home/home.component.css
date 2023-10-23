@@ -28,3 +28,8 @@ tr {
 h2 {
     margin-bottom: 96px;
 }
+@media(max-width: 768px) {
+    h2 {
+        margin-bottom: 20px;
+    }
+}
