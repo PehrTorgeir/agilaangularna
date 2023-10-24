@@ -19,12 +19,13 @@
  }
 
  .logocolumn {
-     margin: auto;
+     display: flex;
+     align-items: center;
  }
  .logorow {
     padding-left: 25px;
  }
- 
+
  #logo {
      white-space: nowrap;
      font-family: 'Teko', sans-serif;
@@ -53,7 +54,7 @@
  @media(max-width:1100px) {
      #logo {
 
-         font-size: 250%;
+         font-size: 400%;
 
      }
 
@@ -61,7 +62,7 @@
 
  @media(max-width:768px) {
      #logo {
-         font-size: 150%;
+         font-size: 270%;
      }
 
      #logocolumn {
