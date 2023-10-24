@@ -8,9 +8,18 @@
   overflow: hidden;
   transition: width 0.3s ease;
   padding-top: 10px;
-  padding-left: 5px;
 
 }
+.linkContainer {
+    width:100%;
+    margin:0;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+.linkContainer:hover {
+    background-color: #bebebe;
+}
+
 
 .sidebar.open {
   width: 250px;
@@ -18,7 +27,7 @@
   line-height: 30px;
 }
 
-.ass {
+.navbar-toggler {
   position: fixed;
   left: 10px;
   transition: 0.5s ease;
@@ -31,7 +40,7 @@
   border: none;
 }
 
-.ass.open {
+.navbar-toggler.open {
   left: 260px;
   transition: 0.3s ease;
   transform: rotate(180deg);
@@ -42,7 +51,7 @@
   font-size: 15px;
   color: black;
   font-weight: 500;
-  margin-left: 5px;
+  padding-left: 5px;
 
 }
 
