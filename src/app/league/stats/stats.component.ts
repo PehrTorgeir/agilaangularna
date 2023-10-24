@@ -69,11 +69,17 @@ export class StatsComponent implements OnInit{
       if (league.name.toLowerCase() === this.receivedData.toLowerCase()) {
         this.leagueService.getSeasons(league.id).subscribe((response) => {
           this.seasons = response.leagues;
-          this.getLeagueStats(this.seasons[0].id);
-          this.leagueName = this.seasons[0].name;
-          this.dataService.sendData(this.seasons[0]);
-          if (this.seasons.length > 0) {
-            this.seasonControl.setValue(this.seasons[0]);
+          const dataSeason = this.dataService.getData();
+          if (dataSeason) {
+            this.seasons.forEach(season => {
+              if(season.season.slug === dataSeason.season.slug) {
+                this.selectSeason(season);
+              }
+            });
+          } else {
+            if (this.seasons.length > 0) {
+              this.selectSeason(this.seasons[0]);
+            }
           }
         });
         break;
@@ -84,6 +90,7 @@ export class StatsComponent implements OnInit{
   selectSeason(season: any) {
     this.selectedSeason = season;
     this.dataService.sendData(season);
+    this.seasonControl.setValue(season);
     this.getLeagueStats(season.id);
   }
 

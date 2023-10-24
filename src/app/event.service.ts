@@ -34,7 +34,7 @@ export class EventService {
     return this.http.get(apiUrl);
   }
   getRecentEventsForSport(sport: bigint): Observable<any> {
-    const apiUrl = `${this.baseUrl}/events?sort=round%3Aasc&limit=10&sport=${sport}&apikey=${this.apiKey}`;
+    const apiUrl = `${this.baseUrl}/events?sort=round%3Adesc&limit=10&sport=${sport}&apikey=${this.apiKey}`;
     return this.http.get(apiUrl);
 
 
