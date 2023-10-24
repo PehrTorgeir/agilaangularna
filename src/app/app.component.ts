@@ -4,6 +4,7 @@ import { RouterLink, RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
 import { SidebarService } from './sidebar.service';
+import { SportExistsGuard } from './sport-exists.guard';
 
 
 @Component({
