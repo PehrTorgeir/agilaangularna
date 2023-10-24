@@ -9,7 +9,7 @@ html {
 }
 
 body {
-  background-color: antiquewhite;
+ 
 }
 
 #logo {
@@ -18,10 +18,12 @@ body {
 }
 
 .tableClass {
-  border: solid 2px #F9B572;
+  border: solid 2px #0e7693;
   border-radius: 5px;
   border-width: 5px;
   background-color: white;
 
 }
-
+.header{
+  background: linear-gradient(to right, #007BFF, #34ACE0);
+}
