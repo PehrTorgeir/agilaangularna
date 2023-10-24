@@ -17,8 +17,22 @@
     border-right: solid 8px #faae43fd;
     width: 250px;
     overflow: visible; 
-    
- 
+  }
+  .ass {
+    position: fixed;
+    left: 10px;
+    transition: 0.3s ease;
+
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+  }
+  .ass.open {
+    left:260px;
+    transition: 0.3s ease;
   }
   
 #text {
@@ -36,5 +50,4 @@
     list-style-type: none;
     margin-left: 0px;
     margin-bottom: 0;
-
 }
