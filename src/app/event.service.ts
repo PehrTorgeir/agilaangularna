@@ -13,25 +13,31 @@ export class EventService {
 
   constructor(private http: HttpClient) { }
 
-  getMatches(ofLeague:BigInt): Observable<any> {
+  getMatches(ofLeague: BigInt): Observable<any> {
     const apiUrl = `${this.baseUrl}/events?league=${ofLeague}&apikey=${this.apiKey}`;
     console.log(apiUrl);
     return this.http.get(apiUrl);
   }
 
-  getRecentEventsForLeague(amount:number, leagueId: bigint): Observable<any> {
+  getRecentEventsForLeague(amount: number, leagueId: bigint): Observable<any> {
     const apiUrl = `${this.baseUrl}/events?fields=all&limit=${amount}&sort=startDate%3Adesc&league=${leagueId}&apikey=${this.apiKey}`;
     return this.http.get(apiUrl);
   }
 
-  getRecentEvents(amount:number): Observable<any> {
-    const apiUrl = `${this.baseUrl}/events?fields=all&limit=${amount}&sort=startDate%3Adesc&apikey=${this.apiKey}`;
+  getRecentEvents(): Observable<any> {
+    const apiUrl = `${this.baseUrl}/events?fields=all&limit=10&sort=startDate%3Adesc&apikey=${this.apiKey}`;
     return this.http.get(apiUrl);
   }
 
-  getAllEventsForLeague(leagueId:bigint) : Observable<any> {
+  getAllEventsForLeague(leagueId: bigint): Observable<any> {
     const apiUrl = `${this.baseUrl}/events?sort=round%3Aasc&league=${leagueId}&apikey=${this.apiKey}&limit=500`;
     return this.http.get(apiUrl);
+  }
+  getRecentEventsForSport(sport: bigint): Observable<any> {
+    const apiUrl = `${this.baseUrl}/events?sort=round%3Aasc&limit=10&sport=${sport}&apikey=${this.apiKey}`;
+    return this.http.get(apiUrl);
+
+
   }
 
 }
