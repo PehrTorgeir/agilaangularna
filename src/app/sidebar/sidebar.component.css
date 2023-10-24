@@ -5,6 +5,7 @@
     left: 0;
     height: 100vh;
     background-color: antiquewhite;
+    
     overflow: hidden; 
     transition: width 0.3s ease; 
     padding-top: 10px;
@@ -13,7 +14,7 @@
   }
   
   .sidebar.open {
-    border-right: solid 8px orange;
+    border-right: solid 8px #faae43fd;
     width: 250px;
     overflow: visible; 
     
