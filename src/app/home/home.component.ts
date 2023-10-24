@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
         this.newReceivedData = params['sport'];
         this.importFeaturedEvents();
       } else {
-        this.newReceivedData = ''; // Set to default value when no sport is selected
+        this.newReceivedData = ''; 
         this.importFeaturedEvents();
       }
     });

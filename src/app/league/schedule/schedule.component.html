@@ -2,7 +2,7 @@
     <div class="col">
         <h1>{{leagueName}}</h1>
     </div>
-    <div class="col">
+    <div class="col" style="white-space: nowrap;">
         <button mat-button (click)="selectPrevious()"><mat-icon>keyboard_arrow_left</mat-icon></button>
         <mat-form-field>
             <mat-label>Round</mat-label>
@@ -32,7 +32,7 @@
         <table>
             <tbody>
                 <ng-container *ngFor="let event of roundEvents">
-                    <tr style="border-bottom: 0px; border-top: 2px solid #ffa200;">
+                    <tr style="border-bottom: 0px; border-top: 2px solid #0e7693;">
                         <td class="column-data"><img width="28px" height="30px" src="{{event.homeTeam.logo}}"></td>
                         <td class="column-data" [style.font-weight]="event.homeTeamPoints > 1 ? 'bold' : 'normal'">
                             {{event.homeTeam.name}}</td>
