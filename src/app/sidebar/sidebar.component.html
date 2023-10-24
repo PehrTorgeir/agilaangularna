@@ -10,11 +10,9 @@
                         <ul id="subtext">
                             <a [routerLink]="['/',createLink(leagueName),leagueName,'overview']"><li routerLinkActive="active-nav-link"
                             [routerLinkActiveOptions]="{exact: false}">Översikt</li></a> 
-                            <a [routerLink]="['/',createLink(leagueName),leagueName,'schedule']" routerLinkActive="active-nav-link"
-                            [routerLinkActiveOptions]="{exact: false}"><li routerLinkActive="active-nav-link"
+                            <a [routerLink]="['/',createLink(leagueName),leagueName,'schedule']"><li routerLinkActive="active-nav-link"
                             [routerLinkActiveOptions]="{exact: false}">Spelschema</li></a>
-                            <a [routerLink]="['/',createLink(leagueName),leagueName,'stats']" routerLinkActive="active-nav-link"
-                            [routerLinkActiveOptions]="{exact: false}"><li routerLinkActive="active-nav-link"
+                            <a [routerLink]="['/',createLink(leagueName),leagueName,'stats']"><li routerLinkActive="active-nav-link"
                             [routerLinkActiveOptions]="{exact: false}">Spelarstatistik</li></a>
                         </ul>
                     </div>
