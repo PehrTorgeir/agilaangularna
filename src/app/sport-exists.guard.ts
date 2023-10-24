@@ -7,7 +7,7 @@ import { ActivatedRouteSnapshot, RouterStateSnapshot, CanActivate, Router } from
 export class SportExistsGuard implements CanActivate {
 
   // List of valid sports
-  private validSports = ['Fotboll', 'Ishockey', 'Innebandy', 'fotboll', 'ishockey', 'innebandy'];
+  private validSports = ['fotboll', 'ishockey', 'innebandy'];
 
   constructor(private router: Router) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
