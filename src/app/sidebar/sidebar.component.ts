@@ -3,7 +3,7 @@ import { SportService } from '../sport.service';
 import { LeagueService } from '../league.service';
 import { CommonModule } from '@angular/common';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ActivatedRoute, RouterLink, Router, ActivationEnd } from '@angular/router';
+import { ActivatedRoute, RouterLink, Router, ActivationEnd, RouterModule } from '@angular/router';
 import { Subscription, filter, map } from 'rxjs';
 import { Output, EventEmitter } from '@angular/core';
 import { SidebarService } from '../sidebar.service';
@@ -15,7 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
   standalone: true,
   imports: [
     CommonModule,
-    RouterLink,
+    RouterLink, RouterModule,
     NgbModule,
     MatIconModule
   ],
