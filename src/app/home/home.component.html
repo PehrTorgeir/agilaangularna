@@ -16,6 +16,7 @@
                 <td class="column-data" [style.font-weight]="event.visitingTeamPoints > 1 ? 'bold' : 'normal'">{{event.visitingTeam.name}}</td>
                 <td class="column-data" style="font-weight: 700;">{{event.visitingTeamScore}}</td>
                 <td class="column-data">Spectators: {{event.facts.spectators}}</td>
+                <td class="column-data">{{event.league.name}}</td>
             </tr>
         </ng-container>
     </tbody>

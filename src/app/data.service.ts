@@ -5,13 +5,13 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-  private dataSubject = new BehaviorSubject<any>(null);
+  private dataSubject: any;
 
   sendData(data: any) {
-    this.dataSubject.next(data);
+    this.dataSubject = data;
   }
 
-  getData(): Observable<any> {
-    return this.dataSubject.asObservable();
+  getData() {
+    return this.dataSubject;
   }
 }

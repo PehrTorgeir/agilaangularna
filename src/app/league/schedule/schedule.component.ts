@@ -27,7 +27,7 @@ import { HeaderComponent } from 'src/app/header/header.component';
   styleUrls: ['./schedule.component.css']
 })
 
-export class ScheduleComponent implements OnInit{
+export class ScheduleComponent implements OnInit {
   seasons: any[] = [];
   leagues: any[] = [];
 
@@ -41,10 +41,11 @@ export class ScheduleComponent implements OnInit{
   leagueName: string = '';
   seasonControl = new FormControl();
   roundsControl = new FormControl();
+  labelText: string = '';
 
   doesLeagueExist: boolean = false;
 
-  constructor(private eventService: EventService, private leagueService: LeagueService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private eventService: EventService, private leagueService: LeagueService, private route: ActivatedRoute, private dataService: DataService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -73,10 +74,17 @@ export class ScheduleComponent implements OnInit{
       if (league.name.toLowerCase() === this.receivedData.toLowerCase()) {
         this.leagueService.getSeasons(league.id).subscribe((response) => {
           this.seasons = response.leagues;
-          this.getLeagueStats(this.seasons[0].id);
-          this.leagueName = this.seasons[0].name;
-          if (this.seasons.length > 0) {
-            this.seasonControl.setValue(this.seasons[0]);
+          const dataSeason = this.dataService.getData();
+          if (dataSeason) {
+            this.seasons.forEach(season => {
+              if(season.season.slug === dataSeason.season.slug) {
+                this.selectSeason(season);
+              }
+            });
+          } else {
+            if (this.seasons.length > 0) {
+              this.selectSeason(this.seasons[0]);
+            }
           }
         });
         break;
@@ -106,9 +114,9 @@ export class ScheduleComponent implements OnInit{
     const currentValue = this.roundsControl.value;
     const currentIndex = this.rounds.findIndex(round => round === currentValue);
     if (currentIndex < this.rounds.length - 1) {
-        this.roundsControl.setValue(this.rounds[currentIndex + 1]);
-        this.selectRound(this.rounds[currentIndex + 1]);
-        console.log(this.rounds[currentIndex + 1]);
+      this.roundsControl.setValue(this.rounds[currentIndex + 1]);
+      this.selectRound(this.rounds[currentIndex + 1]);
+      console.log(this.rounds[currentIndex + 1]);
     }
   }
 
@@ -116,14 +124,16 @@ export class ScheduleComponent implements OnInit{
     const currentValue = this.roundsControl.value;
     const currentIndex = this.rounds.findIndex(round => round === currentValue);
     if (currentIndex > 0) {
-        this.roundsControl.setValue(this.rounds[currentIndex - 1]);
-        this.selectRound(this.rounds[currentIndex - 1]);
-        console.log(this.rounds[currentIndex - 1]);
+      this.roundsControl.setValue(this.rounds[currentIndex - 1]);
+      this.selectRound(this.rounds[currentIndex - 1]);
+      console.log(this.rounds[currentIndex - 1]);
     }
   }
 
   selectSeason(season: any) {
     this.selectedSeason = season;
+    this.dataService.sendData(season);
+    this.seasonControl.setValue(season);
     this.getLeagueStats(season.id);
   }
 
@@ -132,8 +142,8 @@ export class ScheduleComponent implements OnInit{
       this.allEvents = response.events;
       this.getRoundsFromSeason();
       if (this.rounds.length > 0) {
-        this.roundsControl.setValue(this.rounds[this.rounds.length-1]);
-        this.selectRound(this.rounds[this.rounds.length-1]);
+        this.roundsControl.setValue(this.rounds[this.rounds.length - 1]);
+        this.selectRound(this.rounds[this.rounds.length - 1]);
       }
     });
   }

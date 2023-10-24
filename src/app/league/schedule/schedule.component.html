@@ -17,7 +17,7 @@
     <div class="col">
         <mat-form-field>
             <mat-label>Seasons</mat-label>
-            <mat-select [formControl]="seasonControl" (selectionChange)="selectSeason($event.value)">
+            <mat-select [formControl]="seasonControl" (selectionChange)="selectSeason($event.value)" [(value)]="selectedSeason">
                 <mat-option *ngFor="let season of seasons" [value]="season">
                     {{ season.season.slug }}
                 </mat-option>
