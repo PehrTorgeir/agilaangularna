@@ -1,17 +1,18 @@
 <div>
     <div class="sidebar" [class.open]="isSidebarOpen">
-        <button class=" navbar-toggler ass" [class.open]="isSidebarOpen" (click)="openSidebar()"><span class="dark-blue-text"><mat-icon>arrow_forward_ios</mat-icon></span></button> 
+        <button class=" navbar-toggler" [class.open]="isSidebarOpen" (click)="openSidebar()"><span class="dark-blue-text"><mat-icon>arrow_forward_ios</mat-icon></span></button> 
         <div class="col">
             <div *ngFor="let leagueName of filteredLeagueNames; let i = index">
-                <a id="text" [routerLink]="['/', createLink(leagueName), leagueName]"> {{ transformWord(leagueName)
-                    }}</a>
-                <div #collapse="ngbCollapse" [ngbCollapse]="selectedItem !== leagueName">
-                    <ul id="subtext">
-                        <li><a [routerLink]="['/',createLink(leagueName),leagueName,'overview']">Översikt</a> </li>
-                        <li><a [routerLink]="['/',createLink(leagueName),leagueName,'schedule']">Spelschema</a></li>
-                        <li><a [routerLink]="['/',createLink(leagueName),leagueName,'stats']">Spelarstatistik</a></li>
-                    </ul>
-                </div>
+                <a [routerLink]="['/', createLink(leagueName), leagueName]"> <div id="text" class="linkContainer">
+                    {{ transformWord(leagueName)}}
+                </div></a>
+                    <div #collapse="ngbCollapse" [ngbCollapse]="selectedItem !== leagueName">
+                        <ul id="subtext">
+                            <a [routerLink]="['/',createLink(leagueName),leagueName,'overview']"><li>Översikt</li></a> 
+                            <a [routerLink]="['/',createLink(leagueName),leagueName,'schedule']"><li>Spelschema</li></a>
+                            <a [routerLink]="['/',createLink(leagueName),leagueName,'stats']"><li>Spelarstatistik</li></a>
+                        </ul>
+                    </div>
             </div>
         </div>
     </div>
