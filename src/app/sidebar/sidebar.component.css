@@ -21,7 +21,7 @@
 .ass {
   position: fixed;
   left: 10px;
-  transition: 0.3s ease;
+  transition: 0.5s ease;
 
   font-size: 20px;
   cursor: pointer;
@@ -34,6 +34,7 @@
 .ass.open {
   left: 260px;
   transition: 0.3s ease;
+  transform: rotate(180deg);
 }
 
 #text {

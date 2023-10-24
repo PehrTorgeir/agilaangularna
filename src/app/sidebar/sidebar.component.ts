@@ -8,6 +8,7 @@ import { Subscription, filter, map } from 'rxjs';
 import { Output, EventEmitter } from '@angular/core';
 import { SidebarService } from '../sidebar.service';
 import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-sidebar',
@@ -15,7 +16,8 @@ import {BreakpointObserver, Breakpoints} from '@angular/cdk/layout';
   imports: [
     CommonModule,
     RouterLink,
-    NgbModule
+    NgbModule,
+    MatIconModule
   ],
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css'],
