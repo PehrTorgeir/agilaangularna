@@ -38,7 +38,7 @@ export class OverviewComponent implements OnInit {
   // bookingLeaders: any[] = [];
   // sentOffLeaders: any[] = [];
 
-  colorDescriptions: {color : string, description: string } [] = [];
+  colorDescriptions: { color: string, description: string }[] = [];
   receivedData: string = '';
   selectedSeason: any;
   leagueName: string = '';
@@ -80,7 +80,7 @@ export class OverviewComponent implements OnInit {
           if (dataSeason) {
             this.seasons.forEach(season => {
               let ifEmpty = '';
-              if(season.season.slug === dataSeason.season.slug) {
+              if (season.season.slug === dataSeason.season.slug) {
                 ifEmpty = season;
                 this.selectSeason(season);
               }
@@ -103,6 +103,8 @@ export class OverviewComponent implements OnInit {
     this.selectedSeason = season;
     this.dataService.sendData(season);
     this.seasonControl.setValue(season);
+    this.leagueName = season.name;
+
     this.getLeagueStats(season.id);
   }
 
