@@ -20,21 +20,21 @@ export class EventService {
   }
 
   getRecentEventsForLeague(amount: number, leagueId: bigint): Observable<any> {
-    const apiUrl = `${this.baseUrl}/events?fields=all&limit=${amount}&sort=startDate%3Adesc&league=${leagueId}&apikey=${this.apiKey}`;
+    const apiUrl = `${this.baseUrl}/events?fields=all&limit=${amount}&sort=startDate%3Adesc&status=FINISHED&status=ONGOING&league=${leagueId}&apikey=${this.apiKey}`;
     return this.http.get(apiUrl);
   }
 
   getRecentEvents(): Observable<any> {
-    const apiUrl = `${this.baseUrl}/events?fields=all&limit=10&sort=startDate%3Adesc&apikey=${this.apiKey}`;
+    const apiUrl = `${this.baseUrl}/events?fields=all&status=FINISHED&status=ONGOING&limit=10&sort=startDate%3Adesc&apikey=${this.apiKey}`;
     return this.http.get(apiUrl);
   }
 
   getAllEventsForLeague(leagueId: bigint): Observable<any> {
-    const apiUrl = `${this.baseUrl}/events?sort=round%3Aasc&league=${leagueId}&apikey=${this.apiKey}&limit=500`;
+    const apiUrl = `${this.baseUrl}/events?sort=round%3Aasc&status=FINISHED&status=ONGOING&league=${leagueId}&apikey=${this.apiKey}&limit=500`;
     return this.http.get(apiUrl);
   }
   getRecentEventsForSport(sport: bigint): Observable<any> {
-    const apiUrl = `${this.baseUrl}/events?sort=startDate%3Adesc&limit=10&sport=${sport}&apikey=${this.apiKey}`;
+    const apiUrl = `${this.baseUrl}/events?sort=startDate%3Adesc&status=FINISHED&status=ONGOING&limit=10&sport=${sport}&apikey=${this.apiKey}`;
     return this.http.get(apiUrl);
 
 
