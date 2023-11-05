@@ -1,3 +1,28 @@
-.border {
-    border: solid 122px blue;
+.col table {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+.column-header,
+.column-data {
+    padding: 5px; 
+    text-align: center;
+    font-size: 20px;
+}
+
+tr {
+    border-bottom: 2px solid #0e7693; 
+}
+
+.row {
+    margin-bottom: 50px;
+}
+
+h2 {
+    margin-bottom: 96px;
+}
+@media(max-width: 768px) {
+    h2 {
+        margin-bottom: 20px;
+    }
 }

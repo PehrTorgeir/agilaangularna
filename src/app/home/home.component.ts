@@ -1,29 +1,70 @@
 import { Component, OnInit } from '@angular/core';
-import { SportService } from '../sport.service';
-import { LeagueService } from '../league.service';
+import { ActivatedRoute } from '@angular/router';
+import { EventService } from '../event.service';
 import { CommonModule } from '@angular/common';
+import { SportService } from '../sport.service';
+
 
 @Component({
   selector: 'app-home',
+  imports: [CommonModule],
   standalone: true,
-  imports: [
-    CommonModule
-  ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit{
-  sports: any[] = [];
-  leagues: any[] = [];
+export class HomeComponent implements OnInit {
+  recentMatchesAmount: number = 3;
+  featuredLeague: bigint = 87302n;
+  featuredEvents: any[] = [];
+  newReceivedData: string = '';
+  sportsArray: any[] = [];
+  featuredSport: bigint = 0n;
+  
+  constructor(private route: ActivatedRoute, private eventService: EventService, private sportService: SportService) { }
 
-  constructor(private sportService: SportService, private leagueService: LeagueService) { }
+  ngOnInit(): void {
 
-  ngOnInit() {
-    this.sportService.getSports().subscribe((response) => {
-      this.sports = response.sports;
+    this.route.params.subscribe(params => {
+      if ('sport' in params) {
+        this.newReceivedData = params['sport'];
+        this.importFeaturedEvents();
+      } else {
+        this.newReceivedData = ''; 
+        this.importFeaturedEvents();
+      }
     });
-    this.leagueService.getLeagues().subscribe((response) => {
-      this.leagues = response.leagues;
-    })
+  }
+  
+
+
+  private importFeaturedEvents() {
+    if (this.newReceivedData !== '') {
+      if (this.sportsArray.length === 0) {
+        this.sportService.getSports().subscribe((response) => {
+          this.sportsArray = response.sports;
+          this.sportsArray.forEach(sport => {
+            if (this.newReceivedData === sport.slug) {
+              this.featuredSport = sport.id;
+              this.eventService.getRecentEventsForSport(this.featuredSport).subscribe((response) => {
+                this.featuredEvents = response.events;
+              });
+            }
+          });
+        });
+      } else {
+        this.sportsArray.forEach(sport => {
+          if (this.newReceivedData === sport.slug) {
+            this.featuredSport = sport.id;
+            this.eventService.getRecentEventsForSport(this.featuredSport).subscribe((response) => {
+              this.featuredEvents = response.events;
+            });
+          }
+        });
+      }
+    } else {
+      this.eventService.getRecentEvents().subscribe((response) => {
+        this.featuredEvents = response.events;
+      });
+    }
   }
 }

@@ -1,0 +1,25 @@
+.column-header,
+.column-data {
+    padding: 5px;
+   
+    text-align: center;
+    font-size: 20px;
+}
+
+.col table {
+    border-collapse: collapse;
+    width: 120%;
+    
+}
+
+button {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.col tr {
+    border-bottom: 2px solid #0e7693;
+    border-right: 2px solid #0e7693;
+    border-left: 2px solid #0e7693;
+   
+}

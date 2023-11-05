@@ -1,0 +1,22 @@
+<div>
+    <div class="sidebar" [class.open]="isSidebarOpen">
+        <button class=" navbar-toggler" [class.open]="isSidebarOpen" (click)="openSidebar()"><span class="dark-blue-text"><mat-icon>arrow_forward_ios</mat-icon></span></button> 
+        <div class="col">
+            <div *ngFor="let leagueName of filteredLeagueNames; let i = index">
+                <a [routerLink]="['/', createLink(leagueName), leagueName]"> <div id="text" class="linkContainer">
+                    {{ transformWord(leagueName)}}
+                </div></a>
+                    <div #collapse="ngbCollapse" [ngbCollapse]="selectedItem !== leagueName">
+                        <ul id="subtext">
+                            <a [routerLink]="['/',createLink(leagueName),leagueName,'overview']"><li routerLinkActive="active-nav-link"
+                            [routerLinkActiveOptions]="{exact: false}">Översikt</li></a> 
+                            <a [routerLink]="['/',createLink(leagueName),leagueName,'schedule']"><li routerLinkActive="active-nav-link"
+                            [routerLinkActiveOptions]="{exact: false}">Spelschema</li></a>
+                            <a [routerLink]="['/',createLink(leagueName),leagueName,'stats']"><li routerLinkActive="active-nav-link"
+                            [routerLinkActiveOptions]="{exact: false}">Spelarstatistik</li></a>
+                        </ul>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>

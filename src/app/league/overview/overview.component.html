@@ -1,0 +1,78 @@
+<div class="row">
+    <div class="col">
+        <h1>{{leagueName}}</h1>
+    </div>
+    <div class="col">
+        <mat-form-field *ngIf="doesLeagueExist">
+            <mat-label>Seasons</mat-label>
+            <mat-select [formControl]="seasonControl" (selectionChange)="selectSeason($event.value)">
+                <mat-option *ngFor="let season of seasons" [value]="season">
+                    {{ season.season.slug }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col">
+        <table class="tableClass">
+            <thead>
+                <tr *ngIf="doesLeagueExist">
+                    <th class="column-header">Pos</th>
+                    <th class="column-header">Logo</th>
+                    <th class="column-header">Name</th>
+                    <th class="column-header" *ngFor="let stat of standings[0]?.stats">
+                        {{ stat?.name?.toUpperCase() }}
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let org of standings; let i = index">
+                    <td class="column-data" [style.background-color]="getColor(i+1)">{{ i + 1 }}</td>
+                    <td class="column-data"><img width="30px" height="30px" src="{{org.team.logo}}"></td>
+                    <td class="column-data">{{ org.team.name }}</td>
+                    <ng-container *ngFor="let stat of org.stats">
+                        <td class="column-data">{{ stat.value }}</td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngFor="let item of colorDescriptions" class="colorDescriptions">
+        <div class="color-box" [ngStyle]="{ 'background-color': item.color }"></div>
+        <div>{{ item.description }}</div>
+    </div>
+
+
+</div>
+
+<div class="row" style="width: 50%;">
+    <div class="col" *ngIf="doesLeagueExist">
+        <h2>Senaste matcherna:</h2>
+        <table>
+            <tbody>
+                <ng-container *ngFor="let event of recentEvents">
+                    <tr style="border-bottom: 0px;">
+                        <td class="column-data"><img width="28px" height="30px" src="{{event.homeTeam.logo}}"></td>
+                        <td class="column-data" [style.font-weight]="event.homeTeamPoints > 1 ? 'bold' : 'normal'">
+                            {{event.homeTeam.name}}</td>
+                        <td class="column-data" style="font-weight: 700;">{{event.homeTeamScore}}</td>
+                        <td class="column-data" *ngIf="event.finishedTimeStatus == 'PENALTY_SHOOTOUT' || event.finishedTimeStatus == 'OVERTIME' ||
+                       event.finishedTimeStatus == 'WALK_OVER' || event.finishedTimeStatus == 'RETIRED '">
+                            {{event.finishedTimeStatus}}</td>
+                        <td class="column-data">{{event.facts.arena.name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="column-data"><img width="28px" height="30px" src="{{event.visitingTeam.logo}}"></td>
+                        <td class="column-data" [style.font-weight]="event.visitingTeamPoints > 1 ? 'bold' : 'normal'">
+                            {{event.visitingTeam.name}}</td>
+                        <td class="column-data" style="font-weight: 700;">{{event.visitingTeamScore}}</td>
+                        <td class="column-data">Spectators: {{event.facts.spectators}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+
+        </table>
+    </div>
+</div>
